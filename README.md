@@ -3,6 +3,12 @@
 This app allows the user to input track marks and compare athletes on their team
 across different event types.
 
+# Start-Up Instructions
+
+-  Open a new terminal and use "cd django" to change the current directory.
+-  Use "python manage.py runserver" to start the server.
+   -  Use "Ctrl + C" to close the server.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
