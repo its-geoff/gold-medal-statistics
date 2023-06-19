@@ -9,6 +9,14 @@ across different event types.
 -  Use "python manage.py runserver" to start the server.
    -  Use "Ctrl + C" to close the server.
 
+# Testing Instructions
+
+-  Ensure the terminal is in the correct directory ("GMS/website (django)/django").
+   -  If not, use "cd django" to switch the directory.
+-  Use "python manage.py test" to run all tests.
+   -  Use "python manage.py test example" to run tests in the package "example".
+   -  Use "python manage.py test example.test1" to run tests in the "test1" module.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
