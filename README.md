@@ -14,8 +14,7 @@ across different event types.
 -  Ensure the terminal is in the correct directory ("GMS/website (django)/django").
    -  If not, use "cd django" to switch the directory.
 -  Use "python manage.py test" to run all tests.
-   -  Use "python manage.py test example" to run tests in the package "example".
-   -  Use "python manage.py test example.test1" to run tests in the "test1" module.
+   -  Use "python manage.py test marks.tests.test_name" to run only the "test_name" test.
 
 # Changelog
 
