@@ -1,0 +1,7 @@
+__pycache__
+test_files
+.env
+checklist.md
+gms_windows_layout.xd
+to-do.md
+/django/marks/tests.py
