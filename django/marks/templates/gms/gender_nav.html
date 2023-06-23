@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title></title>
+</head>
+
+<body>
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
+
+   <div class="gender_nav">
+      <nav>
+         <ul>
+            <!-- sets the current page as active -->
+            {% if page == "stats" or page == "men" %}
+            <li><a href="/stats/men/" class="active">MEN</a></li>
+            <li><a href="/stats/women/">WOMEN</a></li>
+            {% elif page == "women" %}
+            <li><a href="/stats/men/">MEN</a></li>
+            <li><a href="/stats/women/" class="active">WOMEN</a></li>
+            {% else %}
+            <li>{{ page }}</li>
+            {% endif %}
+         </ul>
+      </nav>
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title></title>
+</head>
+
+<body>
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
+
+   <div class="navbar">
+      <a href="/home/"><img src="{% static 'gms/gms_white.png' %}" alt="logo" id="logo"></img></a>
+      <nav>
+         <ul>
+            <!-- sets the current page as active -->
+            {% if page == "home" %}
+            <li><a href="/home/" class="active">HOME</a></li>
+            <li><a href="/about/">ABOUT</a></li>
+            <li><a href="/scores/">SCORES</a></li>
+            <li><a href="/stats/">STATS</a></li>
+            {% elif page == "about" %}
+            <li><a href="/home/">HOME</a></li>
+            <li><a href="/about/" class="active">ABOUT</a></li>
+            <li><a href="/scores/">SCORES</a></li>
+            <li><a href="/stats/">STATS</a></li>
+            {% elif page == "scores" %}
+            <li><a href="/home/">HOME</a></li>
+            <li><a href="/about/">ABOUT</a></li>
+            <li><a href="/scores/" class="active">SCORES</a></li>
+            <li><a href="/stats/">STATS</a></li>
+            {% elif page == "stats" or page == "men" or page == "women" %}
+            <li><a href="/home/">HOME</a></li>
+            <li><a href="/about/">ABOUT</a></li>
+            <li><a href="/scores/">SCORES</a></li>
+            <li><a href="/stats/" class="active">STATS</a></li>
+            {% else %}
+            <li>{{ page }}</li>
+            {% endif %}
+         </ul>
+      </nav>
+   </div>
+</body>
+
+</html>

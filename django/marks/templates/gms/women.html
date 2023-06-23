@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>women</title>
+
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+</head>
+
+<body>
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
+
+   <!-- adds the navbar into the webpage -->
+   {% include 'gms/navbar.html' %}
+
+   <!-- adds the gender navbar into the webpage -->
+   {% include 'gms/gender_nav.html' %}
+
+   {% if women_list %}
+   <table>
+      {% for athlete in women_list %}
+      <tr>
+         <td class="container"><a href="{% url 'gms:women_profile' athlete.get_name_text %}" class="name">
+               {{ athlete.get_name_text }}</a></td>
+      </tr>
+      {% endfor %}
+   </table>
+   {% else %}
+   <table>
+      <tr>
+         <td class="blank">No entries are available.</td>
+      </tr>
+   </table>
+   {% endif %}
+</body>
+
+</html>

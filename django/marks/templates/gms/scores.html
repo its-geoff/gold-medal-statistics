@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>scores</title>
+
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+
+</head>
+
+<body>
+   <link rel="stylesheet" type="text/css" href="{% static 'gms/style.css' %}">
+
+   <!-- adds the navbar into the webpage -->
+   {% include 'gms/navbar.html' %}
+
+   <!-- adds the new entry part into the webpage -->
+   {% include 'gms/new_entry.html' %}
+
+   {% if leaderboard %}
+   <h1>LEADERBOARD</h1>
+   <table>
+      <tr>
+         <th class="name">ATHLETE</th>
+         <th class="gender">GENDER</th>
+         <th class="event">EVENT</th>
+         <th class="mark">MARK</th>
+         <th class="points">POINTS</th>
+      </tr>
+      {% for entry in leaderboard %}
+      <tr>
+         <td>{{ entry.get_name_text }}</td>
+         <td>{{ entry.get_gender_text }}</td>
+         <td>{{ entry.get_event_text }}</td>
+         <td>{{ entry.get_mark_text }}</td>
+         <td>{{ entry.get_points_text }}</td>
+      </tr>
+      {% endfor %}
+   </table>
+   {% else %}
+   <p>No entries are available.</p>
+   {% endif %}
+</body>
+
+</html>

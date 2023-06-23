@@ -1,0 +1,214 @@
+/* custom fonts */
+@font-face {
+   font-family: "Metropolis SemiBold";
+   src: local("Metropolis-SemiBold"),
+      url("../gms/Metropolis-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+   font-family: "Metropolis Bold";
+   src: local("Metropolis-Bold"),
+      url("../gms/Metropolis-Bold.otf") format("opentype");
+}
+
+@font-face {
+   font-family: "Montserrat Regular";
+   src: local("Montserrat-Regular"),
+      url("../gms/Montserrat-Regular.ttf") format("truetype");
+}
+
+/* whole website */
+body {
+   background-color: #212529;
+   color: white;
+   font-family: "Montserrat Regular";
+}
+
+/* navbar */
+/* find way to center text automatically */
+nav ul {
+   font-family: "Metropolis Bold";
+   list-style: none;
+   margin: auto;
+   font-size: 25px;
+   padding: 12px;
+   display: flex;
+   justify-content: space-around;
+   vertical-align: middle;
+}
+
+a {
+   color: white;
+   text-decoration: none;
+   padding-bottom: 8px;
+}
+
+/* fade in indicator line animation */
+li {
+   display: inline-block;
+   position: relative;
+   padding-bottom: 8px;
+}
+
+li:after {
+   position: absolute;
+   top: 33px;
+   content: "";
+   display: block;
+   margin-bottom: 8px;
+   height: 4px;
+   width: 0px;
+   background: transparent;
+   transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+li:hover:after {
+   width: 100%;
+   background: #cc9a06;
+}
+
+.active {
+   padding-bottom: 8px;
+   border-bottom: 4px solid #cc9a06;
+}
+
+/* find way to make logo responsive */
+#logo {
+   height: auto;
+   max-width: 150px;
+   float: left;
+   padding: 0 5px 10px 20px;
+   vertical-align: middle;
+}
+
+.navbar {
+   clear: both;
+   overflow: auto;
+   align-items: center;
+   margin: 18px 10px 5px;
+}
+
+/* scores */
+table,
+th,
+td {
+   border-collapse: collapse;
+   padding: 10px;
+   font-family: "Metropolis SemiBold";
+   font-size: 23px;
+   margin-left: 15px;
+}
+
+th {
+   background-color: white;
+   border: 2px solid;
+   color: #212529;
+   text-align: center;
+   padding: 8px;
+   width: 8vw;
+}
+
+td {
+   border: 0px;
+   text-align: left;
+}
+
+h1 {
+   font-family: "Metropolis SemiBold";
+   font-size: 30px;
+   margin-left: 15px;
+}
+
+p {
+   font-size: 20px;
+}
+
+.name {
+   width: 19vw;
+}
+
+.gender {
+   width: 5vw;
+}
+
+/* new_entry */
+fieldset {
+   background-color: #cc9a06;
+   border: 0px;
+   display: flex;
+   justify-content: space-around;
+   padding: 12px 0;
+}
+
+input {
+   font-family: "Metropolis Bold";
+   font-size: 23px;
+}
+
+.button {
+   font-family: "Metropolis Bold";
+   border: none;
+   padding: 5px 25px;
+   font-size: 20px;
+   color: black;
+   background-color: #cc9a06;
+   text-align: center;
+}
+
+.button:hover {
+   color: white;
+   transition: 0.3s;
+}
+
+.submit-container {
+   text-align: center;
+}
+
+.new-entry-container {
+   text-align: right;
+   margin-top: -25px;
+   margin-right: 2px;
+}
+
+#name {
+   width: 19vw;
+}
+
+#gender {
+   width: 8vw;
+}
+
+#event,
+#mark {
+   width: 12vw;
+}
+
+/* stats */
+
+/* gender_nav */
+.gender_nav {
+   clear: left;
+   overflow: auto;
+   align-items: center;
+   width: 45%;
+   margin: 20px 0px 15px 0px;
+}
+
+.container {
+   padding: 15px 10px 15px 30px;
+   background-color: white;
+   width: 40vw;
+}
+
+.name {
+   font-family: "Metropolis Bold";
+   font-size: 25px;
+   color: black;
+}
+
+.blank {
+   font-size: 22px;
+   padding: 15px 10px 15px 30px;
+   background-color: none;
+   width: 40vw;
+}
