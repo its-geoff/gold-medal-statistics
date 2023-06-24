@@ -189,7 +189,7 @@ input {
    overflow: auto;
    align-items: center;
    width: 45%;
-   margin: 20px 0px 15px 0px;
+   margin: 20px 0px 0px 0px;
 }
 
 .container {
@@ -198,8 +198,13 @@ input {
    width: 40vw;
 }
 
-/* stats */
+.table-spacing {
+   border-collapse: separate;
+   border-spacing: 0 20px;
+   padding: 0px;
+}
 
+/* stats */
 .name {
    font-family: "Metropolis Bold";
    font-size: 25px;

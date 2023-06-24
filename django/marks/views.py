@@ -33,7 +33,7 @@ def new_entry(request):
    name = request.POST['name']
    gender = gender_validation(request.POST['gender'])
    team = request.POST['team']
-   event = request.POST['event']
+   event = request.POST['event'].lower()
    mark = float(request.POST['mark'])
    athlete = Athlete.create(name, gender, team)
    athlete.save()
@@ -57,9 +57,10 @@ def new_entry(request):
 
 def stats(request):
    page = "stats"
-   print(page)
    men_list = Athlete.objects.filter(gender = "men")
    women_list = Athlete.objects.filter(gender = "women")
+   print(men_list)
+   print(women_list)
    template = loader.get_template('gms/stats.html')
    context = {
       'men_list': men_list,

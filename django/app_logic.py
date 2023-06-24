@@ -84,7 +84,7 @@ def check_for_athlete(name, gender, team):
 
 # updates an athlete's PR if it's better than the previous one
 def update_personal_record(athlete, mark):
-   if check_for_athlete(athlete.name, athlete.gender, athlete.team):
+   if not (check_for_athlete(athlete.name, athlete.gender, athlete.team)):
       new_athlete = athlete
    else:
       new_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team)

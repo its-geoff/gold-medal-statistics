@@ -21,7 +21,7 @@
    {% include 'gms/gender_nav.html' %}
 
    {% if women_list %}
-   <table>
+   <table class="table-spacing">
       {% for athlete in women_list %}
       <tr>
          <td class="container"><a href="{% url 'gms:women_profile' athlete.get_name_text %}" class="name">
@@ -30,7 +30,7 @@
       {% endfor %}
    </table>
    {% else %}
-   <table>
+   <table class="table-spacing">
       <tr>
          <td class="blank">No entries are available.</td>
       </tr>
