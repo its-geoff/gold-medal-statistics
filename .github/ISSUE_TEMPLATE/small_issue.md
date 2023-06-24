@@ -1,6 +1,6 @@
 ---
 name: Task
-about: A small task that is, most likely, part of an Feature. It will usually be labeled as `good first issue`.
+about: A small task that is, most likely, part of an Feature. It will usually be labeled as "good first issue".
 ---
 
 <!-- Issue title should mirror the Task Title. -->
@@ -11,10 +11,10 @@ Task: Awesome Task Title
 
 ## Task Description
 
-This Task will...
+This task will...
 
-## Epic Parent
+## Feature Parent
 
-<!-- The link below should link to its Epic Parent. -->
+<!-- The link below should link to its Feature Parent. -->
 
-[Feature: Awesome Feature Title] (https://github.com/username/repository-name/issues/1)
+[Feature: Awesome Feature Title](https://github.com/username/repository-name/issues/1)

@@ -1,6 +1,6 @@
 ---
 name: Feature
-about: A task large enough that it needs to be divided into smaller tasks. It will usually be labeled as `enhancement`.
+about: A task large enough that it needs to be divided into smaller tasks. It will usually be labeled as "enhancement".
 ---
 
 <!-- Issue title should mirror the Feature Title. -->
@@ -11,7 +11,7 @@ Feature: Awesome Feature Title
 
 ## Feature Description
 
-This Feature will...
+This feature will...
 
 ## List of Tasks (Complete in order)
 
