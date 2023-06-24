@@ -36,6 +36,18 @@
       </tr>
    </table>
    {% endif %}
+   {% if page == "women" %}
+   <p class="blank-frame bold-blank">Click on an athlete's name to<br>get their
+      best marks.</p>
+   {% else %}
+   <div class="frame active-frame">
+      <table>
+         <tr>
+            <td class="bold-blank">{{ athlete.get_name_text }}</td>
+         </tr>
+      </table>
+   </div>
+   {% endif %}
 </body>
 
 </html>

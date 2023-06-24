@@ -32,13 +32,11 @@
             <li><a href="/about/">ABOUT</a></li>
             <li><a href="/scores/" class="active">SCORES</a></li>
             <li><a href="/stats/">STATS</a></li>
-            {% elif page == "stats" or page == "men" or page == "women" %}
+            {% elif page == "stats" or page == "men" or page == "women" or page == "profile" %}
             <li><a href="/home/">HOME</a></li>
             <li><a href="/about/">ABOUT</a></li>
             <li><a href="/scores/">SCORES</a></li>
             <li><a href="/stats/" class="active">STATS</a></li>
-            {% else %}
-            <li>{{ page }}</li>
             {% endif %}
          </ul>
       </nav>
