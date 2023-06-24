@@ -150,7 +150,7 @@ input {
    border: none;
    padding: 5px 25px;
    font-size: 20px;
-   color: black;
+   color: #212529;
    background-color: #cc9a06;
    text-align: center;
 }
@@ -183,10 +183,8 @@ input {
    width: 12vw;
 }
 
-/* stats */
-
 /* gender_nav */
-.gender_nav {
+.gender-nav {
    clear: left;
    overflow: auto;
    align-items: center;
@@ -200,10 +198,12 @@ input {
    width: 40vw;
 }
 
+/* stats */
+
 .name {
    font-family: "Metropolis Bold";
    font-size: 25px;
-   color: black;
+   color: #212529;
 }
 
 .blank {
@@ -211,4 +211,28 @@ input {
    padding: 15px 10px 15px 30px;
    background-color: none;
    width: 40vw;
+}
+
+/* athlete profile */
+.active-frame {
+   border: 4px solid #fff;
+}
+
+.blank-frame {
+   border: none;
+}
+
+.bold-blank {
+   display: flex;
+   position: absolute;
+   left: 53.5vw;
+   bottom: 8vh;
+   width: 38vw;
+   height: 75vh;
+   font-family: "Montserrat Regular";
+   font-size: 25px;
+   color: white;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
 }
