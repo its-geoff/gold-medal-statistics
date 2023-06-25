@@ -93,23 +93,24 @@ def women(request):
 def men_profile(request, name):
    page = "m_profile"
    men_list = Athlete.objects.filter(gender = "men")
-   athlete = Athlete.objects.filter(name = name)
+   athlete = Athlete.objects.get(name = name)
+   print(athlete.get_name_text)
    template = loader.get_template('gms/men.html')
    context = {
       'men_list': men_list,
-      'profile': athlete,
+      'athlete': athlete,
    }
 
-   return render(request, 'gms/men.html', {'men_list': men_list, 'profile': athlete, 'page': page})
+   return render(request, 'gms/men.html', {'men_list': men_list, 'athlete': athlete, 'page': page})
 
 def women_profile(request, name):
    page = "w_profile"
    women_list = Athlete.objects.filter(gender = "women")
-   athlete = Athlete.objects.filter(name = name)
+   athlete = Athlete.objects.get(name = name)
    template = loader.get_template('gms/women.html')
    context = {
       'women_list': women_list,
-      'profile': athlete,
+      'athlete': athlete,
    }
 
-   return render(request, 'gms/women.html', {'women_list': women_list, 'profile': athlete, 'page': page})
+   return render(request, 'gms/women.html', {'women_list': women_list, 'athlete': athlete, 'page': page})
