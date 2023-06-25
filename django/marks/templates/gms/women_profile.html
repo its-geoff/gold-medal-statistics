@@ -39,7 +39,10 @@
    </table>
    {% endif %}
    <div class="frame active-frame">
-      <h2 class="title">{{ athlete.get_name_text }}</h2>
+      <div class="personal">
+         <h2 class="title">{{ athlete.get_name_text }}</h2>
+         <p class="team">{{ athlete.get_team_text }}</p>
+      </div>
       <p class="image"><img src="{% static 'gms/women_placeholder.png' %}" class="women"></p>
       <div class="info">
          {% if athlete.one_points > 0 %}

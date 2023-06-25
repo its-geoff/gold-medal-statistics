@@ -250,7 +250,7 @@ input {
 .frame {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 1fr 1fr 1fr 4vh 1fr 1fr 4vh;
+   grid-template-rows: 1fr 4vh 1fr 1fr 4vh 1fr 1fr 4vh;
    position: absolute;
    left: 53.5vw;
    bottom: 8vh;
@@ -295,14 +295,23 @@ h3 {
    align-items: center;
 }
 
-.title {
+.personal {
    grid-column: 1 / span 3;
    grid-row: 1;
+   text-align: center;
+}
+
+.title {
+   margin: 15px auto 5px auto;
+}
+
+.team {
+   margin: 5px auto;
 }
 
 .image {
    grid-column: 1 / span 3;
-   grid-row: 2 / span 2;
+   grid-row: 3 / span 2;
    place-self: center;
 }
 
@@ -322,10 +331,11 @@ h3 {
 
 .info {
    grid-column: 1 / span 3;
-   grid-row: 4 / span 2;
-   padding: 25px;
+   grid-row: 6 / span 2;
+   padding: 0px 15px;
    text-align: left;
    font-size: 21px;
+   align-content: start;
 }
 
 .item {
