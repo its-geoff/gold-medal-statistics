@@ -30,7 +30,7 @@ class Mark(models.Model):
       return self.event
 
    def get_mark_text(self):
-      return self.mark
+      return f"{self.mark:.2f}"
    
    def get_points_text(self):
       return self.points
