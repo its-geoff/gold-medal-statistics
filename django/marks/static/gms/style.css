@@ -131,6 +131,10 @@ p {
    width: 5vw;
 }
 
+.team {
+   width: 22vw;
+}
+
 /* new_entry */
 fieldset {
    background-color: #cc9a06;

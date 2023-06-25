@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from .models import Mark, Athlete
-from app_logic import binary_search, gender_validation, update_personal_record
+from app_logic import binary_search, gender_validation, check_for_athlete, update_personal_record
 
 # Create your views here.
 def home(request):
@@ -35,8 +35,11 @@ def new_entry(request):
    team = request.POST['team']
    event = request.POST['event'].lower()
    mark = float(request.POST['mark'])
-   athlete = Athlete.create(name, gender, team)
-   athlete.save()
+   if check_for_athlete(name, gender, team):
+      athlete = Athlete.objects.get(name = name)
+   else:
+      athlete = Athlete.create(name, gender, team)
+      athlete.save()
    entry = Mark.create(name, gender, team, event, mark)
    entry.save()
    leaderboard = Mark.objects.order_by('-points')
