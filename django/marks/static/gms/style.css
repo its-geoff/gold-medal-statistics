@@ -107,7 +107,7 @@ thead {
 tbody {
    display: block;
    overflow: auto;
-   width: 100%;
+   width: 87.5%;
    height: 100%;
 }
 
@@ -242,7 +242,7 @@ input {
 
 .scroll {
    overflow: auto;
-   width: 46vw;
+   width: 53vw;
    height: 70vh;
 }
 
@@ -306,10 +306,30 @@ h3 {
    place-self: center;
 }
 
+.men {
+   max-height: 200px;
+   max-width: 159px;
+   height: auto;
+   width: auto;
+}
+
+.women {
+   max-height: 235px;
+   max-width: 235px;
+   height: auto;
+   width: auto;
+}
+
 .info {
    grid-column: 1 / span 3;
    grid-row: 4 / span 2;
    padding: 25px;
    text-align: left;
    font-size: 21px;
+}
+
+.item {
+   font-family: "Metropolis SemiBold";
+   font-size: 25px;
+   margin: 15px;
 }
