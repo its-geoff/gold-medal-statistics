@@ -75,63 +75,63 @@ def gender_validation(input):
    
 # checks if an athlete's page exists
 def check_for_athlete(name, gender, team):
-   for athlete in Athlete.objects.all():
-      if athlete.name.lower() == name.lower() and athlete.gender.lower() == gender.lower() \
-      and athlete.team.lower() == team.lower():
+   # filters by name first to shorten number of loop iterations
+   for athlete in Athlete.objects.filter(name = name):
+      if athlete.gender.lower() == gender.lower() and athlete.team.lower() == team.lower():
          return True
       else:
          return False
 
 # updates an athlete's PR if it's better than the previous one
 def update_personal_record(athlete, mark):
-   if not (check_for_athlete(athlete.name, athlete.gender, athlete.team)):
-      new_athlete = athlete
+   if check_for_athlete(athlete.name, athlete.gender, athlete.team):
+      chosen_athlete = athlete
    else:
-      new_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team)
-   new_athlete.save()
+      chosen_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team)
+   chosen_athlete.save()
    if mark.event == "100m":
-      if mark.points > new_athlete.one_points:
-         new_athlete.one_mark = mark.mark
-         new_athlete.one_points = mark.points
+      if mark.points > chosen_athlete.one_points:
+         chosen_athlete.one_mark = mark.mark
+         chosen_athlete.one_points = mark.points
    elif mark.event == "200m":
-      if mark.points > new_athlete.two_points:
-         new_athlete.two_mark = mark.mark
-         new_athlete.two_points = mark.points
+      if mark.points > chosen_athlete.two_points:
+         chosen_athlete.two_mark = mark.mark
+         chosen_athlete.two_points = mark.points
    elif mark.event == "400m":
-      if mark.points > new_athlete.four_points:
-         new_athlete.four_mark = mark.mark
-         new_athlete.four_points = mark.points
+      if mark.points > chosen_athlete.four_points:
+         chosen_athlete.four_mark = mark.mark
+         chosen_athlete.four_points = mark.points
    elif mark.event == "100mh":
-      if mark.points > new_athlete.one_h_points:
-         new_athlete.one_h_mark = mark.mark
-         new_athlete.one_h_points = mark.points
+      if mark.points > chosen_athlete.one_h_points:
+         chosen_athlete.one_h_mark = mark.mark
+         chosen_athlete.one_h_points = mark.points
    elif mark.event == "110mh":
-      if mark.points > new_athlete.one_h_points:
-         new_athlete.one_h_mark = mark.mark
-         new_athlete.one_h_points = mark.points
+      if mark.points > chosen_athlete.one_h_points:
+         chosen_athlete.one_h_mark = mark.mark
+         chosen_athlete.one_h_points = mark.points
    elif mark.event == "400mh":
-      if mark.points > new_athlete.four_h_points:
-         new_athlete.four_h_mark = mark.mark
-         new_athlete.four_h_points = mark.points
+      if mark.points > chosen_athlete.four_h_points:
+         chosen_athlete.four_h_mark = mark.mark
+         chosen_athlete.four_h_points = mark.points
    elif mark.event == "4x100m":
-      if mark.points > new_athlete.one_r_points:
-         new_athlete.one_r_mark = mark.mark
-         new_athlete.one_r_points = mark.points
+      if mark.points > chosen_athlete.one_r_points:
+         chosen_athlete.one_r_mark = mark.mark
+         chosen_athlete.one_r_points = mark.points
    elif mark.event == "4x400m":
-      if mark.points > new_athlete.four_r_points:
-         new_athlete.four_r_mark = mark.mark
-         new_athlete.four_r_points = mark.points
+      if mark.points > chosen_athlete.four_r_points:
+         chosen_athlete.four_r_mark = mark.mark
+         chosen_athlete.four_r_points = mark.points
    elif mark.event == "800m":
-      if mark.points > new_athlete.eight_points:
-         new_athlete.eight_mark = mark.mark
-         new_athlete.eight_points = mark.points
+      if mark.points > chosen_athlete.eight_points:
+         chosen_athlete.eight_mark = mark.mark
+         chosen_athlete.eight_points = mark.points
    elif mark.event == "1600m":
-      if mark.points > new_athlete.sixteen_points:
-         new_athlete.sixteen_mark = mark.mark
-         new_athlete.sixteen_points = mark.points
+      if mark.points > chosen_athlete.sixteen_points:
+         chosen_athlete.sixteen_mark = mark.mark
+         chosen_athlete.sixteen_points = mark.points
    elif mark.event == "3200m":
-      if mark.points > new_athlete.thirtytwo_points:
-         new_athlete.thirtytwo_mark = mark.mark
-         new_athlete.thirtytwo_points = mark.points
-   new_athlete.save()
-   return new_athlete
+      if mark.points > chosen_athlete.thirtytwo_points:
+         chosen_athlete.thirtytwo_mark = mark.mark
+         chosen_athlete.thirtytwo_points = mark.points
+   chosen_athlete.save()
+   return chosen_athlete
