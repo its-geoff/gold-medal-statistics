@@ -38,18 +38,10 @@
       </tr>
    </table>
    {% endif %}
-   {% if page == "men" %}
    <div class="frame blank-frame">
       <p class=" bold-blank">Click on an athlete's name to<br>get their
          best marks.</p>
    </div>
-   {% else %}
-   <div class="frame active-frame">
-      <h2 class="title">{{ athlete.get_name_text }}</h2>
-      <p class="image">Insert image here.</p>
-      <p class="info">Insert info here.</p>
-   </div>
-   {% endif %}
 </body>
 
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>{{ athlete.get_name_text }}</title>
+
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+</head>
+
+<body>
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
+
+   <!-- adds the navbar into the webpage -->
+   {% include 'gms/navbar.html' %}
+
+   <!-- adds the gender navbar into the webpage -->
+   {% include 'gms/gender_nav.html' %}
+
+   {% if women_list %}
+   <div class="scroll">
+      <table class="table-spacing">
+         {% for athlete in women_list %}
+         <tr>
+            <td class="container"><a href="{% url 'gms:women_profile' athlete.get_name_text %}" class="stats-name">
+                  {{ athlete.get_name_text }}</a></td>
+         </tr>
+         {% endfor %}
+      </table>
+   </div>
+   {% else %}
+   <table class="table-spacing">
+      <tr>
+         <td class="blank">No entries are available.</td>
+      </tr>
+   </table>
+   {% endif %}
+   <div class="frame active-frame">
+      <h2 class="title">{{ athlete.get_name_text }}</h2>
+      <p class="image"><img src="{% static 'gms/women_placeholder.png' %}" class="women"></p>
+      <div class="info">
+         {% if athlete.one_points > 0 %}
+         <p class="item">{{ athlete.get_one_pr }}</p>
+         {% endif %}
+         {% if athlete.two_points > 0 %}
+         <p class="item">{{ athlete.get_two_pr }}</p>
+         {% endif %}
+         {% if athlete.four_points > 0 %}
+         <p class="item">{{ athlete.get_four_pr }}</p>
+         {% endif %}
+         {% if athlete.eight_points > 0 %}
+         <p class="item">{{ athlete.get_eight_pr }}</p>
+         {% endif %}
+         {% if athlete.sixteen_points > 0 %}
+         <p class="item">{{ athlete.get_sixteen_pr }}</p>
+         {% endif %}
+         {% if athlete.thirtytwo_points > 0 %}
+         <p class="item">{{ athlete.get_thirtytwo_pr }}</p>
+         {% endif %}
+         {% if athlete.one_h_points > 0 %}
+         <p class="item">{{ athlete.get_one_h_pr }}</p>
+         {% endif %}
+         {% if athlete.four_h_points > 0 %}
+         <p class="item">{{ athlete.get_four_h_pr }}</p>
+         {% endif %}
+         {% if athlete.one_r_points > 0 %}
+         <p class="item">{{ athlete.get_one_r_pr }}</p>
+         {% endif %}
+         {% if athlete.four_r_points > 0 %}
+         <p class="item">{{ athlete.get_four_r_pr }}</p>
+         {% endif %}
+      </div>
+   </div>
+</body>
+
+</html>

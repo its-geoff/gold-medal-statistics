@@ -73,6 +73,37 @@ class Athlete(models.Model):
    def get_name_text(self):
       return self.name
 
+   # formatted for stats profile
+   def get_one_pr(self):
+      return f"100m: {self.one_mark:.2f} - {self.one_points}"
+   
+   def get_two_pr(self):
+      return f"200m: {self.two_mark:.2f} - {self.two_points}"
+   
+   def get_four_pr(self):
+      return f"400m: {self.four_mark:.2f} - {self.four_points}"
+   
+   def get_eight_pr(self):
+      return f"800m: {self.eight_mark:.2f} - {self.eight_points}"
+   
+   def get_sixteen_pr(self):
+      return f"1600m: {self.sixteen_mark:.2f} - {self.sixteen_points}"
+   
+   def get_thirtytwo_pr(self):
+      return f"3200m: {self.thirtytwo_mark:.2f} - {self.thirtytwo_points}"
+   
+   def get_one_h_pr(self):
+      return f"100mH: {self.one_h_mark:.2f} - {self.one_h_points}"
+   
+   def get_four_h_pr(self):
+      return f"400mH: {self.four_h_mark:.2f} - {self.four_h_points}"
+   
+   def get_one_r_pr(self):
+      return f"4x100m: {self.one_r_mark:.2f} - {self.one_r_points}"
+   
+   def get_four_r_pr(self):
+      return f"4x400m: {self.four_r_mark:.2f} - {self.four_r_points}"
+
    @classmethod
    def create(cls, name, gender, team):
       athlete = cls(name = name, gender = gender, team = team, 
