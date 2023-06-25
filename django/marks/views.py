@@ -33,7 +33,7 @@ def new_entry(request):
    name = request.POST['name']
    gender = gender_validation(request.POST['gender'])
    team = request.POST['team']
-   event = request.POST['event']
+   event = request.POST['event'].lower()
    mark = float(request.POST['mark'])
    athlete = Athlete.create(name, gender, team)
    athlete.save()
@@ -57,9 +57,10 @@ def new_entry(request):
 
 def stats(request):
    page = "stats"
-   print(page)
    men_list = Athlete.objects.filter(gender = "men")
    women_list = Athlete.objects.filter(gender = "women")
+   print(men_list)
+   print(women_list)
    template = loader.get_template('gms/stats.html')
    context = {
       'men_list': men_list,
@@ -90,21 +91,26 @@ def women(request):
    return render(request, 'gms/women.html', {'women_list': women_list, 'page': page})
 
 def men_profile(request, name):
-   page = "profile"
-   athlete = Athlete.objects.filter(name = name)
+   page = "m_profile"
+   men_list = Athlete.objects.filter(gender = "men")
+   athlete = Athlete.objects.get(name = name)
+   print(athlete.get_name_text)
    template = loader.get_template('gms/men.html')
    context = {
-      'profile': athlete,
+      'men_list': men_list,
+      'athlete': athlete,
    }
 
-   return render(request, 'gms/men.html', {'profile': athlete, 'page': page})
+   return render(request, 'gms/men.html', {'men_list': men_list, 'athlete': athlete, 'page': page})
 
 def women_profile(request, name):
-   page = "profile"
-   athlete = Athlete.objects.filter(name = name)
+   page = "w_profile"
+   women_list = Athlete.objects.filter(gender = "women")
+   athlete = Athlete.objects.get(name = name)
    template = loader.get_template('gms/women.html')
    context = {
-      'profile': athlete,
+      'women_list': women_list,
+      'athlete': athlete,
    }
 
-   return render(request, 'gms/women.html', {'profile': athlete, 'page': page})
+   return render(request, 'gms/women.html', {'women_list': women_list, 'athlete': athlete, 'page': page})

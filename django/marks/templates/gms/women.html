@@ -21,31 +21,33 @@
    {% include 'gms/gender_nav.html' %}
 
    {% if women_list %}
-   <table>
-      {% for athlete in women_list %}
-      <tr>
-         <td class="container"><a href="{% url 'gms:women_profile' athlete.get_name_text %}" class="name">
-               {{ athlete.get_name_text }}</a></td>
-      </tr>
-      {% endfor %}
-   </table>
+   <div class="scroll">
+      <table class="table-spacing">
+         {% for athlete in men_list %}
+         <tr>
+            <td class="container"><a href="{% url 'gms:men_profile' athlete.get_name_text %}" class="stats-name">
+                  {{ athlete.get_name_text }}</a></td>
+         </tr>
+         {% endfor %}
+      </table>
+   </div>
    {% else %}
-   <table>
+   <table class="table-spacing">
       <tr>
          <td class="blank">No entries are available.</td>
       </tr>
    </table>
    {% endif %}
    {% if page == "women" %}
-   <p class="blank-frame bold-blank">Click on an athlete's name to<br>get their
-      best marks.</p>
+   <div class="frame blank-frame">
+      <p class=" bold-blank">Click on an athlete's name to<br>get their
+         best marks.</p>
+   </div>
    {% else %}
    <div class="frame active-frame">
-      <table>
-         <tr>
-            <td class="bold-blank">{{ athlete.get_name_text }}</td>
-         </tr>
-      </table>
+      <h2 class="title">{{ athlete.get_name_text }}</h2>
+      <p class="image">Insert image here.</p>
+      <p class="info">Insert info here.</p>
    </div>
    {% endif %}
 </body>

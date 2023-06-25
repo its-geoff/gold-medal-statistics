@@ -21,14 +21,16 @@
    {% include 'gms/gender_nav.html' %}
 
    {% if men_list %}
-   <table>
-      {% for athlete in men_list %}
-      <tr>
-         <td class="container"><a href="{% url 'gms:men_profile' athlete.get_name_text %}" class="name">
-               {{ athlete.get_name_text }}</a></td>
-      </tr>
-      {% endfor %}
-   </table>
+   <div class="scroll">
+      <table class="table-spacing">
+         {% for athlete in men_list %}
+         <tr>
+            <td class="container"><a href="{% url 'gms:men_profile' athlete.get_name_text %}" class="stats-name">
+                  {{ athlete.get_name_text }}</a></td>
+         </tr>
+         {% endfor %}
+      </table>
+   </div>
    {% else %}
    <table>
       <tr>
@@ -36,8 +38,10 @@
       </tr>
    </table>
    {% endif %}
-   <p class="blank-frame bold-blank">Click on an athlete's name to<br>get their
-      best marks.</p>
+   <div class="frame blank-frame">
+      <p class=" bold-blank">Click on an athlete's name to<br>get their
+         best marks.</p>
+   </div>
 </body>
 
 </html>

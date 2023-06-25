@@ -16,10 +16,10 @@
       <nav>
          <ul>
             <!-- sets the current page as active -->
-            {% if page == "stats" or page == "men" %}
+            {% if page == "stats" or page == "men" or page == "m_profile" %}
             <li><a href="/stats/men/" class="active">MEN</a></li>
             <li><a href="/stats/women/">WOMEN</a></li>
-            {% elif page == "women" %}
+            {% elif page == "women" or page == "w_profile" %}
             <li><a href="/stats/men/">MEN</a></li>
             <li><a href="/stats/women/" class="active">WOMEN</a></li>
             {% else %}
