@@ -72,6 +72,9 @@ class Athlete(models.Model):
    # makes each parameter accessible in html
    def get_name_text(self):
       return self.name
+   
+   def get_team_text(self):
+      return self.team
 
    # formatted for stats profile
    def get_one_pr(self):
