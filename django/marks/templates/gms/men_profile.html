@@ -24,10 +24,21 @@
    <div class="scroll">
       <table class="table-spacing">
          {% for athlete in men_list %}
+         {% if title == athlete.get_name_text %}
          <tr>
-            <td class="container"><a href="{% url 'gms:men_profile' athlete.get_name_text %}" class="stats-name">
+            <td class="indicator revealed"></td>
+            <td class="container v-active"><a href="{% url 'gms:men_profile' athlete.get_name_text %}"
+                  class="stats-name">
                   {{ athlete.get_name_text }}</a></td>
          </tr>
+         {% else %}
+         <tr>
+            <td class="indicator hidden"></td>
+            <td class="container not-active"><a href="{% url 'gms:men_profile' athlete.get_name_text %}"
+                  class="stats-name">
+                  {{ athlete.get_name_text }}</a></td>
+         </tr>
+         {% endif %}
          {% endfor %}
       </table>
    </div>

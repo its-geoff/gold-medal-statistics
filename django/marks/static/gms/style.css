@@ -228,12 +228,6 @@ input {
    width: 40vw;
 }
 
-.container {
-   padding: 15px 10px 15px 30px;
-   background-color: white;
-   width: 40vw;
-}
-
 .table-spacing {
    border-collapse: separate;
    border-spacing: 0 20px;
@@ -242,8 +236,45 @@ input {
 
 .scroll {
    overflow: auto;
-   width: 53vw;
+   width: 53.5vw;
    height: 70vh;
+}
+
+/* vertical indicator line */
+.container {
+   padding: 15px 10px 15px 30px;
+   background-color: white;
+   width: 40vw;
+}
+
+.container:hover {
+   left: 0.5vw;
+   transition: left 0.5s ease;
+}
+
+.indicator {
+   padding: 0;
+   width: 0.1vw;
+}
+
+.revealed {
+   background-color: #cc9a06;
+}
+
+.hidden {
+   background-color: transparent;
+}
+
+.v-active {
+   position: relative;
+   left: 0.5vw;
+   width: 40vw;
+}
+
+.not-active {
+   position: relative;
+   right: 0.5vw;
+   width: 40vw;
 }
 
 /* athlete profile */

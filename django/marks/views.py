@@ -51,9 +51,6 @@ def new_entry(request):
             'error_message': "Unable to retrieve the requested mark.",
         })
    else:
-      print(athlete.team)
-      print(entry)
-      update_personal_record(athlete, entry)
       athlete.save()
       entry.save()
    return HttpResponseRedirect(reverse('gms:scores'))
@@ -62,8 +59,6 @@ def stats(request):
    page = "stats"
    men_list = Athlete.objects.filter(gender = "men")
    women_list = Athlete.objects.filter(gender = "women")
-   print(men_list)
-   print(women_list)
    template = loader.get_template('gms/stats.html')
    context = {
       'men_list': men_list,
@@ -95,24 +90,30 @@ def women(request):
 
 def men_profile(request, name):
    page = "men"
+   title = name
    men_list = Athlete.objects.filter(gender = "men")
    athlete = Athlete.objects.get(name = name)
    template = loader.get_template('gms/men_profile.html')
    context = {
       'men_list': men_list,
       'athlete': athlete,
+      'title': title,
    }
 
-   return render(request, 'gms/men_profile.html', {'men_list': men_list, 'athlete': athlete, 'page': page})
+   return render(request, 'gms/men_profile.html', {'men_list': men_list, 'athlete': athlete, 
+                 'title': title, 'page': page})
 
 def women_profile(request, name):
    page = "women"
+   title = name
    women_list = Athlete.objects.filter(gender = "women")
    athlete = Athlete.objects.get(name = name)
    template = loader.get_template('gms/women_profile.html')
    context = {
       'women_list': women_list,
       'athlete': athlete,
+      'title': title,
    }
 
-   return render(request, 'gms/women_profile.html', {'women_list': women_list, 'athlete': athlete, 'page': page})
+   return render(request, 'gms/women_profile.html', {'women_list': women_list, 
+                 'athlete': athlete, 'title': title, 'page': page})
