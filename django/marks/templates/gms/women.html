@@ -25,7 +25,9 @@
       <table class="table-spacing">
          {% for athlete in women_list %}
          <tr>
-            <td class="container"><a href="{% url 'gms:women_profile' athlete.get_name_text %}" class="stats-name">
+            <td class="indicator hidden"></td>
+            <td class="container not-active"><a href="{% url 'gms:women_profile' athlete.get_name_text %}"
+                  class="stats-name">
                   {{ athlete.get_name_text }}</a></td>
          </tr>
          {% endfor %}

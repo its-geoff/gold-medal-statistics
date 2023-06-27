@@ -31,7 +31,7 @@ nav ul {
    list-style: none;
    margin: auto;
    font-size: 25px;
-   padding: 12px;
+   padding: 12px 12px 24px 12px;
    display: flex;
    justify-content: space-around;
    vertical-align: middle;
@@ -68,7 +68,7 @@ li:hover:after {
 }
 
 .active {
-   padding-bottom: 8px;
+   padding-bottom: 6px;
    border-bottom: 4px solid #cc9a06;
 }
 
@@ -86,6 +86,43 @@ li:hover:after {
    overflow: auto;
    align-items: center;
    margin: 18px 10px 5px;
+}
+
+/* home */
+.welcome {
+   display: inline-block;
+   margin: auto;
+   text-align: center;
+   padding: 5px;
+   position: relative;
+   left: 5vw;
+   top: 0;
+}
+
+.wordmark {
+   padding: 5px;
+   max-height: 112.5px;
+   max-width: 401px;
+   height: auto;
+   width: auto;
+}
+
+.hook {
+   font-family: "Montserrat Regular";
+   font-size: 38px;
+   color: white;
+}
+
+.showcase {
+   max-height: 390px;
+   max-width: 600px;
+   height: auto;
+   width: auto;
+   margin: auto;
+   padding: 5px;
+   position: relative;
+   left: 14vw;
+   top: 11vh;
 }
 
 /* scores */
@@ -135,6 +172,10 @@ h1 {
 
 p {
    font-size: 20px;
+}
+
+.leaderboard {
+   margin: 20px 0 10px 20px;
 }
 
 .name {
