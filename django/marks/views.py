@@ -39,6 +39,7 @@ def new_entry(request):
       athlete = Athlete.objects.get(name = name)
    else:
       athlete = Athlete.create(name, gender, team)
+      print(athlete)
       athlete.save()
    entry = Mark.create(name, gender, team, event, mark)
    entry.save()
@@ -51,6 +52,7 @@ def new_entry(request):
             'error_message': "Unable to retrieve the requested mark.",
         })
    else:
+      update_personal_record(athlete, entry)
       athlete.save()
       entry.save()
    return HttpResponseRedirect(reverse('gms:scores'))
