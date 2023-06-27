@@ -125,6 +125,18 @@ li:hover:after {
    top: 11vh;
 }
 
+/* about */
+.question {
+   font-size: 40px;
+}
+
+.description {
+   font-family: "Montserrat Regular";
+   font-size: 30px;
+   margin-left: 20px;
+   margin-right: 20px;
+}
+
 /* scores */
 table {
    display: block;
