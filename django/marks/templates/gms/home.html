@@ -17,7 +17,11 @@
    <!-- adds the navbar into the webpage -->
    {% include 'gms/navbar.html' %}
 
-   <h1>WELCOME TO GOLD MEDAL STATISTICS.</h1>
+   <div class="welcome">
+      <img src="{% static 'gms/home_wordmark.png' %}" class="wordmark">
+      <h2 class="hook">The next level of progress<br>tracking has arrived.</h2>
+   </div>
+   <img src="{% static 'gms/showcase.png' %}" class="showcase">
 </body>
 
 </html>
