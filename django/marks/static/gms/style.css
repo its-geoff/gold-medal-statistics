@@ -206,6 +206,13 @@ p {
    width: 8vw;
 }
 
+.ignore-spacing {
+   font-size: 22px;
+   padding: 15px 10px 15px 0px;
+   background-color: none;
+   width: 40vw;
+}
+
 /* new_entry */
 fieldset {
    background-color: #cc9a06;

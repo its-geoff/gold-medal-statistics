@@ -21,8 +21,8 @@
    <!-- adds the new entry part into the webpage -->
    {% include 'gms/new_entry.html' %}
 
-   {% if leaderboard %}
    <h1 class="leaderboard">LEADERBOARD</h1>
+   {% if leaderboard %}
    <table>
       <thead>
          <tr>
@@ -48,7 +48,11 @@
       </tbody>
    </table>
    {% else %}
-   <p>No entries are available.</p>
+   <table>
+      <tr>
+         <td class="ignore-spacing">No entries are available.</td>
+      </tr>
+   </table>
    {% endif %}
 </body>
 
