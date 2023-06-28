@@ -43,6 +43,10 @@ def new_entry(request):
       event = "LJ"
    elif event == "tj" or event == "triple" or event == "triple jump":
       event = "TJ"
+   elif event == "sp" or event == "shot" or event == "shot put":
+      event = "SP"
+   elif event == "dt" or event == "discus" or event == "discus throw":
+      event = "DT"
    mark = float(request.POST['mark'])
    if check_for_athlete(name, gender, team):
       athlete = Athlete.objects.get(name = name)
@@ -53,7 +57,8 @@ def new_entry(request):
    entry.save()
    leaderboard = Mark.objects.order_by('-points')
    try:
-      if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ":
+      if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ" \
+      or event == "SP" or event == "DT":
          entry.points = jt_binary_search(entry.gender, entry.event, entry.mark)
       else:
          entry.points = sd_binary_search(entry.gender, entry.event, entry.mark)

@@ -38,7 +38,6 @@ def sd_binary_search(gender, event, mark):
       mid = (low + high) // 2
       
       test = retrieve(gender, event, mid)
-      print(test, mark)
       while test == None:
          mid += 1
          test = retrieve(gender, event, mid)
@@ -175,6 +174,14 @@ def update_personal_record(athlete, mark):
    elif mark.event == "TJ":
       if mark.points > chosen_athlete.tj_points:
          chosen_athlete.tj_mark = mark.mark
-         chosen_athlete.tj_points = mark.points    
+         chosen_athlete.tj_points = mark.points
+   elif mark.event == "SP":
+      if mark.points > chosen_athlete.sp_points:
+         chosen_athlete.sp_mark = mark.mark
+         chosen_athlete.sp_points = mark.points
+   elif mark.event == "DT":
+      if mark.points > chosen_athlete.dt_points:
+         chosen_athlete.dt_mark = mark.mark
+         chosen_athlete.dt_points = mark.points      
    chosen_athlete.save()
    return chosen_athlete
