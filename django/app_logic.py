@@ -26,10 +26,10 @@ def main():
 
    print("Points: " + str(binary_search(gender, event, mark)))
 
-# runs a binary search on the data set
+# runs a binary search on the data set - high to low marks (sprints/distance)
 # removes half the data each time depending on the target's relationship to the 
 # middle value
-def binary_search(gender, event, mark):
+def sd_binary_search(gender, event, mark):
    low = 1
    high = 1400
    mid = 0
@@ -38,6 +38,7 @@ def binary_search(gender, event, mark):
       mid = (low + high) // 2
       
       test = retrieve(gender, event, mid)
+      print(test, mark)
       while test == None:
          mid += 1
          test = retrieve(gender, event, mid)
@@ -46,6 +47,32 @@ def binary_search(gender, event, mark):
       if test > mark:
          low = mid + 1
       elif test < mark:
+         high = mid - 1
+      else:
+         return mid
+   return mid - 1
+
+# runs a binary search on the data set - low to high marks (jumps/throws)
+# removes half the data each time depending on the target's relationship to the 
+# middle value
+def jt_binary_search(gender, event, mark):
+   low = 1
+   high = 1400
+   mid = 0
+
+   while low <= high:
+      mid = (low + high) // 2
+      
+      test = retrieve(gender, event, mid)
+      print(test, mark)
+      while test == None:
+         mid += 1
+         test = retrieve(gender, event, mid)
+      
+
+      if test < mark:
+         low = mid + 1
+      elif test > mark:
          high = mid - 1
       else:
          return mid
@@ -132,6 +159,22 @@ def update_personal_record(athlete, mark):
    elif mark.event == "3200m":
       if mark.points > chosen_athlete.thirtytwo_points:
          chosen_athlete.thirtytwo_mark = mark.mark
-         chosen_athlete.thirtytwo_points = mark.points
+         chosen_athlete.thirtytwo_points = mark.points    
+   elif mark.event == "HJ":
+      if mark.points > chosen_athlete.hj_points:
+         chosen_athlete.hj_mark = mark.mark
+         chosen_athlete.hj_points = mark.points    
+   elif mark.event == "PV":
+      if mark.points > chosen_athlete.pv_points:
+         chosen_athlete.pv_mark = mark.mark
+         chosen_athlete.pv_points = mark.points    
+   elif mark.event == "LJ":
+      if mark.points > chosen_athlete.lj_points:
+         chosen_athlete.lj_mark = mark.mark
+         chosen_athlete.lj_points = mark.points    
+   elif mark.event == "TJ":
+      if mark.points > chosen_athlete.tj_points:
+         chosen_athlete.tj_mark = mark.mark
+         chosen_athlete.tj_points = mark.points    
    chosen_athlete.save()
    return chosen_athlete
