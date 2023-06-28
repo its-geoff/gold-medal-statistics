@@ -98,6 +98,12 @@
          {% if athlete.tj_points > 0 %}
          <p class="item">{{ athlete.get_tj_pr }}</p>
          {% endif %}
+         {% if athlete.sp_points > 0 %}
+         <p class="item">{{ athlete.get_sp_pr }}</p>
+         {% endif %}
+         {% if athlete.dt_points > 0 %}
+         <p class="item">{{ athlete.get_dt_pr }}</p>
+         {% endif %}
       </div>
    </div>
 </body>

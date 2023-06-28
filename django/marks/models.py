@@ -75,6 +75,10 @@ class Athlete(models.Model):
    lj_points = models.IntegerField(default = 0, verbose_name = "points")
    tj_mark = models.FloatField(default = 0.0, verbose_name = "mark")
    tj_points = models.IntegerField(default = 0, verbose_name = "points")
+   sp_mark = models.FloatField(default = 0.0, verbose_name = "mark")
+   sp_points = models.IntegerField(default = 0, verbose_name = "points")
+   dt_mark = models.FloatField(default = 0.0, verbose_name = "mark")
+   dt_points = models.IntegerField(default = 0, verbose_name = "points")
 
    def __str__(self):
       athlete_text = f"{self.name}, {self.team}"
@@ -129,6 +133,12 @@ class Athlete(models.Model):
    
    def get_tj_pr(self):
       return f"Triple Jump: {self.tj_mark:.2f}m - {self.tj_points}"
+   
+   def get_sp_pr(self):
+      return f"Shot Put: {self.sp_mark:.2f}m - {self.sp_points}"
+   
+   def get_dt_pr(self):
+      return f"Discus Throw: {self.dt_mark:.2f}m - {self.dt_points}"
 
    @classmethod
    def create(cls, name, gender, team):
@@ -139,5 +149,6 @@ class Athlete(models.Model):
                     four_r_mark = 0.0, four_r_points = 0, eight_mark = 0.0, eight_points = 0, 
                     sixteen_mark = 0.0, sixteen_points = 0, thirtytwo_mark = 0.0, thirtytwo_points = 0,
                     hj_mark = 0.0, hj_points = 0, pv_mark = 0.0, pv_points = 0, lj_mark = 0.0,
-                    lj_points = 0, tj_mark = 0.0, tj_points = 0)
+                    lj_points = 0, tj_mark = 0.0, tj_points = 0, sp_mark = 0.0, sp_points = 0,
+                    dt_mark = 0.0, dt_points = 0)
       return athlete
