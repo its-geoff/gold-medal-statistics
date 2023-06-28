@@ -41,7 +41,11 @@
             <td class="gender">{{ entry.get_gender_text }}</td>
             <td class="team">{{ entry.get_team_text}}</td>
             <td class="normal">{{ entry.get_event_text }}</td>
-            <td class="normal">{{ entry.get_mark_text }}</td>
+            {% if entry.event == "HJ" or entry.event == "PV" or entry.event == "LJ" or entry.event == "TJ" %}
+            <td class="normal">{{ entry.get_jt_mark_text }}</td>
+            {% else %}
+            <td class="normal">{{ entry.get_sd_mark_text }}</td>
+            {% endif %}
             <td class="normal">{{ entry.get_points_text }}</td>
          </tr>
          {% endfor %}
