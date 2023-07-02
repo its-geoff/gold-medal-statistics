@@ -26,6 +26,12 @@ class AthleteAdmin(admin.ModelAdmin):
       ('800m',    {'fields': ['eight_mark', 'eight_points']}),
       ('1600m',    {'fields': ['sixteen_mark', 'sixteen_points']}),
       ('3200m',    {'fields': ['thirtytwo_mark', 'thirtytwo_points']}),
+      ('High Jump', {'fields': ['hj_mark', 'hj_points']}),
+      ('Pole Vault', {'fields': ['pv_mark', 'pv_points']}),
+      ('Long Jump', {'fields': ['lj_mark', 'lj_points']}),
+      ('Triple Jump', {'fields': ['tj_mark', 'tj_points']}),
+      ('Shot Put', {'fields': ['sp_mark', 'sp_points']}),
+      ('Discus Throw', {'fields': ['dt_mark', 'dt_points']}),
    ]
 
    list_display = ('name', 'gender', 'team')

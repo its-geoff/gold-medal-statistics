@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title></title>
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="stylesheet" href="{% static 'accts/style.css' %}">
+</head>
+
+<body>
+   <div class="navbar">
+      <a href="/home/"><img src="{% static 'gms/gms_white.png' %}" alt="logo" id="logo"></img></a>
+      <nav>
+         <ul>
+            <!-- sets the current page as active -->
+            {% if page == "signup" or page == "login" or page == "logout" or page == "profile" %}
+            <li><a href="/home/">HOME</a></li>
+            <li><a href="/about/">ABOUT</a></li>
+            <li><a href="/scores/">SCORES</a></li>
+            <li><a href="/stats/">STATS</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'accts:profile' user.get_username_text %}" class="active">
+                  {{ user.get_username_text_upper }}</a></li>
+            {% else %}
+            <li><a href="/login/" class="active">LOGIN</a></li>
+            {% endif %}
+            {% endif %}
+         </ul>
+      </nav>
+   </div>
+</body>
+
+</html>

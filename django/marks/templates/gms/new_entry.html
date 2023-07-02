@@ -9,11 +9,10 @@
    {% load static %}
 
    <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
 </head>
 
 <body>
-   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
-
    <form action="{% url 'gms:new_entry' %}" method="post">
       {% csrf_token %}
       <fieldset>

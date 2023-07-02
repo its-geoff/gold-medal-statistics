@@ -1,0 +1,162 @@
+/* custom fonts */
+@font-face {
+   font-family: "Metropolis SemiBold";
+   src: local("Metropolis-SemiBold"),
+      url("../accts/Metropolis-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+   font-family: "Metropolis Bold";
+   src: local("Metropolis-Bold"),
+      url("../accts/Metropolis-Bold.otf") format("opentype");
+}
+
+@font-face {
+   font-family: "Montserrat Regular";
+   src: local("Montserrat-Regular"),
+      url("../accts/Montserrat-Regular.ttf") format("truetype");
+}
+
+/* copied from marks app */
+/* whole website */
+body {
+   background-color: #212529;
+   color: white;
+   font-family: "Montserrat Regular";
+}
+
+/* navbar */
+/* find way to center text automatically */
+nav ul {
+   font-family: "Metropolis Bold";
+   list-style: none;
+   margin: auto;
+   font-size: 25px;
+   padding: 12px 12px 24px 12px;
+   display: flex;
+   justify-content: space-around;
+   vertical-align: middle;
+}
+
+a {
+   color: white;
+   text-decoration: none;
+   padding-bottom: 8px;
+}
+
+/* fade in indicator line animation */
+li {
+   display: inline-block;
+   position: relative;
+   padding-bottom: 8px;
+}
+
+li:after {
+   position: absolute;
+   top: 33px;
+   content: "";
+   display: block;
+   margin-bottom: 8px;
+   height: 4px;
+   width: 0px;
+   background: transparent;
+   transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+li:hover:after {
+   width: 100%;
+   background: #cc9a06;
+}
+
+.active {
+   margin-bottom: 8px;
+   border-bottom: 4px solid #cc9a06;
+}
+
+/* find way to make logo responsive */
+#logo {
+   height: auto;
+   max-width: 150px;
+   float: left;
+   padding: 0 5px 10px 20px;
+   vertical-align: middle;
+}
+
+.navbar {
+   clear: both;
+   overflow: auto;
+   align-items: center;
+   margin: 18px 10px 5px;
+}
+
+/* login */
+.container {
+   position: absolute;
+   left: 25vw;
+   top: 18vh;
+   width: 50%;
+   height: 50%;
+   padding: 75px 0;
+   border: 4px solid #fff;
+   text-align: center;
+   justify-content: center;
+}
+
+.lgi-content {
+   position: relative;
+   top: -4vh;
+}
+
+.su-content {
+   position: relative;
+   top: -9vh;
+}
+
+.lgo-content {
+   position: relative;
+   top: 8vh;
+}
+
+.header {
+   position: relative;
+   font-family: "Metropolis SemiBold";
+   font-size: 35px;
+   text-align: center;
+   top: 3vh;
+}
+
+input {
+   position: relative;
+   top: 6vh;
+   font-family: "Metropolis Bold";
+   font-size: 25px;
+   padding: 5px;
+   margin: 10px;
+}
+
+.button {
+   font-family: "Metropolis Bold";
+   border: none;
+   padding: 9px 125px;
+   font-size: 23px;
+   color: #212529;
+   background-color: #cc9a06;
+   text-align: center;
+   margin: 10px 10px 20px 10px;
+}
+
+.button:hover {
+   color: white;
+   transition: 0.3s;
+}
+
+.submit-container {
+   text-align: center;
+}
+
+h3 {
+   position: relative;
+   top: 5vh;
+   font-size: 20px;
+   margin: 10px;
+}
