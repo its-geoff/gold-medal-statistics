@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
@@ -24,5 +25,8 @@ urlpatterns = [
    # /stats/women/athlete
    path('stats/women/<str:name>', views.women_profile, name='women_profile'),
 ]
+
+# change admin site url
+admin.site.site_url = '/home'
 
 urlpatterns += staticfiles_urlpatterns()

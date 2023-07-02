@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -27,17 +28,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'marks.apps.MarksConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -69,18 +72,48 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gold_medal_statistics.wsgi.application'
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'users',
+         'USER': 'root',
+         'PASSWORD': 'admin',
+         'HOST': 'localhost',
+         'PORT': '3306',
+         'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+         }
+    },
+    'marks': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'marks',
+         'USER': 'root',
+         'PASSWORD': 'admin',
+         'HOST': 'localhost',
+         'PORT': '3306',
+         'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+         }
+    },
+    'users': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'users',
+         'USER': 'root',
+         'PASSWORD': 'admin',
+         'HOST': 'localhost',
+         'PORT': '3306',
+         'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+         }
     }
 }
 
+DATABASE_ROUTERS = ['marks.db_router.MarksDBRouter', 'users.db_router.UsersDBRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -100,6 +133,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL =  '/home'
+
+LOGIN_URL = '/login'
+
+AUTHENTICATION_BACKENDS = [
+   'django.contrib.auth.backends.ModelBackend',
+]
+
+AUTH_USER_MODEL = "users.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

@@ -1,0 +1,79 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import get_user_model
+
+# Create your views here.
+def navbar(request):
+   return render(request, 'accts/signup.html', {'user': request.user})
+
+def signup(request):
+   page = "signup"
+   if request.method == "POST":
+      email = request.POST.get('email', False)
+      username = request.POST.get('username', False)
+      password = request.POST.get('password', False)
+      user = get_user_model().objects.create_user(email, username, password)
+      user.save(using="users")
+      print("signed up!")
+      return HttpResponseRedirect(reverse('gms:home'))
+   else:
+      return render(request, 'accts/signup.html', {'page': page})
+
+def login(request):
+   page = "login"
+   if request.method == 'POST':
+      form = AuthenticationForm(request, data=request.POST)
+      if form.is_valid():
+         username = form.cleaned_data.get('username')
+         password = form.cleaned_data.get('password')
+         user = authenticate(username=username, password=password)
+         if user is not None:
+            auth_login(request, user)
+            print("logged in")
+            return redirect('gms:home')
+      else:
+         print("login failed")
+         form = AuthenticationForm()
+   return render(request, 'accts/login.html', {'page': page})
+
+def logout(request):
+   page = "logout"
+   auth_logout(request)
+   print("logged out")
+   return render(request, 'accts/logout.html', {'page': page})
+
+def password_change(request):
+   page = "password_change"
+   return render(request, 'accts/password_change.html', {'page': page})
+
+def password_change_done(request):
+   page = "password_change_done"
+   return render(request, 'accts/password_change_done.html', {'page': page})
+
+def password_reset(request):
+   page = "password_reset"
+   return render(request, 'accts/password_reset.html', {'page': page})
+
+def password_reset_done(request):
+   page = "password_reset_done"
+   return render(request, 'accts/password_reset_done.html', {'page': page})
+
+def password_reset_confirm(request):
+   page = "password_reset_confirm"
+   return render(request, 'accts/password_reset_confirm.html', {'page': page})
+
+def password_reset_complete(request):
+   page = "password_reset_complete"
+   return render(request, 'accts/password_reset_complete.html', {'page': page})
+
+def profile(request, username):
+   page = "profile"
+   title = username
+   context = {
+      'title': title,
+      'page': page,
+   }
+   return render(request, 'accts/profile.html', context)

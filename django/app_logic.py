@@ -63,7 +63,6 @@ def jt_binary_search(gender, event, mark):
       mid = (low + high) // 2
       
       test = retrieve(gender, event, mid)
-      print(test, mark)
       while test == None:
          mid += 1
          test = retrieve(gender, event, mid)
@@ -114,7 +113,7 @@ def update_personal_record(athlete, mark):
       chosen_athlete = athlete
    else:
       chosen_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team)
-   chosen_athlete.save()
+   chosen_athlete.save(using="marks")
    if mark.event == "100m":
       if mark.points > chosen_athlete.one_points:
          chosen_athlete.one_mark = mark.mark
@@ -183,5 +182,5 @@ def update_personal_record(athlete, mark):
       if mark.points > chosen_athlete.dt_points:
          chosen_athlete.dt_mark = mark.mark
          chosen_athlete.dt_points = mark.points      
-   chosen_athlete.save()
+   chosen_athlete.save(using="marks")
    return chosen_athlete

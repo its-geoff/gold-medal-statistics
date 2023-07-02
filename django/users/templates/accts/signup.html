@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="container">
+   <div class="su-content">
+      <h1 class="header">Sign up for an account</h1>
+      <form action="{% url 'accts:signup' %}" method="post">
+         {% csrf_token %}
+         <input type="email" id="email" name="email" maxlength="50" placeholder="Email"><br>
+         <input type="text" id="username" name="username" maxlength="20" placeholder="Username"><br>
+         <input type="password" id="password" name="password" maxlength="30" placeholder="Password"><br>
+         <input type="password" id="confirm" name="confirm" maxlength="30" placeholder="Confirm Password"><br>
+
+         <div class="submit-container">
+            <input class="button" type="submit" value="Log in">
+         </div>
+      </form>
+      <h3><a href="{% url 'accts:login' %}">Have an account?</a></h3>
+   </div>
+</div>
+{% endblock %}
