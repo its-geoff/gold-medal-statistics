@@ -43,6 +43,10 @@ a {
    padding-bottom: 8px;
 }
 
+.user {
+   color: #cc9a06;
+}
+
 /* fade in indicator line animation */
 li {
    display: inline-block;
@@ -67,9 +71,19 @@ li:hover:after {
    background: #cc9a06;
 }
 
+.nav:last-child:hover:after {
+   width: 100%;
+   background: white;
+}
+
 .active {
    margin-bottom: 8px;
    border-bottom: 4px solid #cc9a06;
+}
+
+.u-active {
+   margin-bottom: 8px;
+   border-bottom: 4px solid white;
 }
 
 /* find way to make logo responsive */

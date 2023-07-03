@@ -5,11 +5,13 @@
 <div class="container">
    <div class="lgi-content">
       <h1 class="header">Log into your account</h1>
+      {% if incorrect %}
+      <h3 class="ol-error">Username or password is incorrect, please try again.</h3>
+      {% endif %}
       <form action="{% url 'accts:login' %}" method="post">
          {% csrf_token %}
-         <input type="text" id="username" name="username" maxlength="20" placeholder="Username"><br>
-         <input type="password" id="password" name="password" maxlength="30" placeholder="Password"><br>
-
+         <input type="text" id="username" name="username" maxlength="30" placeholder="Username" required><br>
+         <input type="password" id="password" name="password" maxlength="30" placeholder="Password" required><br>
          <div class="submit-container">
             <input class="button" type="submit" value="Log in">
          </div>

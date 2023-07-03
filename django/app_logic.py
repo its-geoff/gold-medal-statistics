@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 from marks.models import Athlete
+from django.contrib.auth import get_user_model
 
 # loads environment variables
 load_dotenv()
@@ -184,3 +185,8 @@ def update_personal_record(athlete, mark):
          chosen_athlete.dt_points = mark.points      
    chosen_athlete.save(using="marks")
    return chosen_athlete
+
+# validates username
+def user_validation(username):
+   if get_user_model().objects.using("users").get(username = username) != get_user_model().DoesNotExist:
+      return "dupe_username"

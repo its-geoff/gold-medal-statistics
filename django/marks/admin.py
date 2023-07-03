@@ -7,11 +7,12 @@ class MarkAdmin(admin.ModelAdmin):
    fieldsets = [
       ('Athlete information', {'fields': ['name', 'gender', 'team']}),
       ('Mark information',    {'fields': ['event', 'mark']}),
+      ('User Assignment', {'fields': ['user']})
    ]
 
    list_display = ('name', 'gender', 'team', 'event', 'mark', 'points')
-   list_filter = ['name', 'gender', 'team', 'event']
-   search_fields = ['name', 'gender', 'team', 'event']
+   list_filter = ['name', 'gender', 'team', 'event', 'user']
+   search_fields = ['name', 'gender', 'team', 'event', 'user']
 
 class AthleteAdmin(admin.ModelAdmin):
    fieldsets = [
@@ -32,11 +33,12 @@ class AthleteAdmin(admin.ModelAdmin):
       ('Triple Jump', {'fields': ['tj_mark', 'tj_points']}),
       ('Shot Put', {'fields': ['sp_mark', 'sp_points']}),
       ('Discus Throw', {'fields': ['dt_mark', 'dt_points']}),
+      ('User Assignment', {'fields': ['user']}),
    ]
 
    list_display = ('name', 'gender', 'team')
-   list_filter = ['name', 'gender', 'team']
-   search_fields = ['name', 'gender', 'team']
+   list_filter = ['name', 'gender', 'team', 'user']
+   search_fields = ['name', 'gender', 'team', 'user']
 
 admin.site.register(Mark, MarkAdmin)
 admin.site.register(Athlete, AthleteAdmin)

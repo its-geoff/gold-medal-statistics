@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout, get_user_model
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import get_user_model
+from app_logic import user_validation
 
 # Create your views here.
 def navbar(request):
@@ -12,31 +12,37 @@ def navbar(request):
 def signup(request):
    page = "signup"
    if request.method == "POST":
-      email = request.POST.get('email', False)
-      username = request.POST.get('username', False)
-      password = request.POST.get('password', False)
-      user = get_user_model().objects.create_user(email, username, password)
+      email = request.POST['email']
+      username = request.POST['username']
+      password = request.POST['password']
+      result = user_validation(username)
+      if result == "dupe_username":
+         return render(request, 'accts/signup.html', {'page': page, 'dupe_username': True})
+      else:
+         user = get_user_model().objects.create_user(email, username, password)
       user.save(using="users")
-      print("signed up!")
+      auth_login(request, user)
       return HttpResponseRedirect(reverse('gms:home'))
    else:
       return render(request, 'accts/signup.html', {'page': page})
 
 def login(request):
    page = "login"
-   if request.method == 'POST':
-      form = AuthenticationForm(request, data=request.POST)
-      if form.is_valid():
-         username = form.cleaned_data.get('username')
-         password = form.cleaned_data.get('password')
-         user = authenticate(username=username, password=password)
-         if user is not None:
-            auth_login(request, user)
-            print("logged in")
-            return redirect('gms:home')
-      else:
-         print("login failed")
-         form = AuthenticationForm()
+   if request.user.is_authenticated:
+      return redirect(reverse('gms:home'))
+   else:
+      if request.method == 'POST':
+         form = AuthenticationForm(request, data=request.POST)
+         if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+               auth_login(request, user)
+               return redirect('gms:home')
+         else:
+            form = AuthenticationForm()
+            return render(request, 'accts/login.html', {'page': page, 'incorrect': True})
    return render(request, 'accts/login.html', {'page': page})
 
 def logout(request):
