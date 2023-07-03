@@ -17,14 +17,18 @@
          <ul>
             <!-- sets the current page as active -->
             {% if page == "signup" or page == "login" or page == "logout" or page == "profile" %}
+            {% if user.is_authenticated %}
+            <li class="nav"><a href="/home/">HOME</a></li>
+            <li class="nav"><a href="/about/">ABOUT</a></li>
+            <li class="nav"><a href="/scores/">SCORES</a></li>
+            <li class="nav"><a href="/stats/">STATS</a></li>
+            <li class="nav"><a href="{% url 'accts:profile' user.get_username_text %}" class="u-active user">
+                  {{ user.get_username_text_upper }}</a></li>
+            {% else %}
             <li><a href="/home/">HOME</a></li>
             <li><a href="/about/">ABOUT</a></li>
             <li><a href="/scores/">SCORES</a></li>
             <li><a href="/stats/">STATS</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'accts:profile' user.get_username_text %}" class="active">
-                  {{ user.get_username_text_upper }}</a></li>
-            {% else %}
             <li><a href="/login/" class="active">LOGIN</a></li>
             {% endif %}
             {% endif %}

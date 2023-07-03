@@ -18,8 +18,8 @@ def about(request):
 @login_required
 def scores(request):
    page = "scores"
-   leaderboard = Mark.objects.using("marks").order_by('-points')
-   template = loader.get_template('gms/scores.html')
+   user = request.user.username
+   leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
    context = {
       'leaderboard': leaderboard,
       'page': page,
@@ -36,6 +36,7 @@ def new_entry(request):
    gender = gender_validation(request.POST['gender'])
    team = request.POST['team']
    event = request.POST['event'].lower()
+   user = request.user.username
    # allows different abbreviations to work
    if event == "hj" or event == "high" or event == "high jump":
       event = "HJ"
@@ -51,13 +52,13 @@ def new_entry(request):
       event = "DT"
    mark = float(request.POST['mark'])
    if check_for_athlete(name, gender, team):
-      athlete = Athlete.objects.using("marks").get(name = name)
+      athlete = Athlete.objects.using("marks").get(user = user, name = name)
    else:
-      athlete = Athlete.create(name, gender, team)
+      athlete = Athlete.create(name, gender, team, user)
       athlete.save(using="marks")
-   entry = Mark.create(name, gender, team, event, mark)
+   entry = Mark.create(name, gender, team, event, mark, user)
    entry.save(using="marks")
-   leaderboard = Mark.objects.using("marks").order_by('-points')
+   leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
    try:
       if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ" \
       or event == "SP" or event == "DT":
@@ -78,8 +79,9 @@ def new_entry(request):
 @login_required
 def stats(request):
    page = "stats"
-   men_list = Athlete.objects.using("marks").filter(gender = "men")
-   women_list = Athlete.objects.using("marks").filter(gender = "women")
+   user = request.user.username
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
+   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
    context = {
       'men_list': men_list,
       'women_list': women_list,
@@ -91,7 +93,8 @@ def stats(request):
 @login_required
 def men(request):
    page = "men"
-   men_list = Athlete.objects.using("marks").filter(gender = "men")
+   user = request.user.username
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
    context = {
       'men_list': men_list,
       'page': page,
@@ -102,7 +105,8 @@ def men(request):
 @login_required
 def women(request):
    page = "women"
-   women_list = Athlete.objects.using("marks").filter(gender = "women")
+   user = request.user.username
+   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
    context = {
       'women_list': women_list,
       'page': page,
@@ -114,8 +118,9 @@ def women(request):
 def men_profile(request, name):
    page = "men"
    title = name
-   men_list = Athlete.objects.using("marks").filter(gender = "men")
-   athlete = Athlete.objects.using("marks").get(name = name)
+   user = request.user.username
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
+   athlete = Athlete.objects.using("marks").get(user = user, name = name)
    context = {
       'men_list': men_list,
       'athlete': athlete,
@@ -129,8 +134,9 @@ def men_profile(request, name):
 def women_profile(request, name):
    page = "women"
    title = name
-   women_list = Athlete.objects.using("marks").filter(gender = "women")
-   athlete = Athlete.objects.using("marks").get(name = name)
+   user = request.user.username
+   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
+   athlete = Athlete.objects.using("marks").get(user = user, name = name)
    context = {
       'women_list': women_list,
       'athlete': athlete,

@@ -4,13 +4,17 @@
 {% block main %}
 <div class="container">
    <div class="su-content">
-      <h1 class="header">Sign up for an account</h1>
+      <h1 class="su-header">Sign up for an account</h1>
+      {% if dupe_username %}
+      <h3 class="tl-error">There is already an account associated with<br>
+         this username, please use another username.</h3>
+      {% endif %}
       <form action="{% url 'accts:signup' %}" method="post">
          {% csrf_token %}
-         <input type="email" id="email" name="email" maxlength="50" placeholder="Email"><br>
-         <input type="text" id="username" name="username" maxlength="20" placeholder="Username"><br>
-         <input type="password" id="password" name="password" maxlength="30" placeholder="Password"><br>
-         <input type="password" id="confirm" name="confirm" maxlength="30" placeholder="Confirm Password"><br>
+         <input type="email" id="email" name="email" maxlength="50" placeholder="Email" required><br>
+         <input type="text" id="username" name="username" maxlength="20" placeholder="Username" required><br>
+         <input type="password" id="password" name="password" maxlength="30" placeholder="Password" required><br>
+         <input type="password" id="confirm" name="confirm" maxlength="30" placeholder="Confirm Password" required><br>
 
          <div class="submit-container">
             <input class="button" type="submit" value="Log in">

@@ -8,6 +8,7 @@ class Mark(models.Model):
    event = models.CharField(max_length = 10)
    mark = models.FloatField(default = 0.0)
    points = models.IntegerField(default = 0)
+   user = models.CharField(max_length = 30, default="admin")
 
    def __str__(self):
       mark_text = f"{self.name}, {self.team}, {self.event}, {self.mark}, {self.points}"
@@ -37,10 +38,13 @@ class Mark(models.Model):
 
    def get_points_text(self):
       return self.points
+
+   def get_user_text(self):
+      return self.user
    
    @classmethod
-   def create(cls, name, gender, team, event, mark):
-      mark = cls(name = name, gender = gender, team = team, event = event, mark = mark, points = 0)
+   def create(cls, name, gender, team, event, mark, user):
+      mark = cls(name = name, gender = gender, team = team, event = event, mark = mark, points = 0, user = user)
       return mark
    
 class Athlete(models.Model):
@@ -79,6 +83,7 @@ class Athlete(models.Model):
    sp_points = models.IntegerField(default = 0, verbose_name = "points")
    dt_mark = models.FloatField(default = 0.0, verbose_name = "mark")
    dt_points = models.IntegerField(default = 0, verbose_name = "points")
+   user = models.CharField(max_length = 30, default="admin")
 
    def __str__(self):
       athlete_text = f"{self.name}, {self.team}"
@@ -140,8 +145,11 @@ class Athlete(models.Model):
    def get_dt_pr(self):
       return f"Discus Throw: {self.dt_mark:.2f}m - {self.dt_points}"
 
+   def get_user_text(self):
+      return self.user
+
    @classmethod
-   def create(cls, name, gender, team):
+   def create(cls, name, gender, team, user):
       athlete = cls(name = name, gender = gender, team = team, 
                     one_mark = 0.0, one_points = 0, two_mark = 0.0, two_points = 0,
                     four_mark = 0.0, four_points = 0, one_h_mark = 0.0, one_h_points = 0,
@@ -150,5 +158,5 @@ class Athlete(models.Model):
                     sixteen_mark = 0.0, sixteen_points = 0, thirtytwo_mark = 0.0, thirtytwo_points = 0,
                     hj_mark = 0.0, hj_points = 0, pv_mark = 0.0, pv_points = 0, lj_mark = 0.0,
                     lj_points = 0, tj_mark = 0.0, tj_points = 0, sp_mark = 0.0, sp_points = 0,
-                    dt_mark = 0.0, dt_points = 0)
+                    dt_mark = 0.0, dt_points = 0, user = user)
       return athlete
