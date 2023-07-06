@@ -123,12 +123,17 @@ li:hover:after {
 
 .su-content {
    position: relative;
-   top: -13.5vh;
+   top: -9.5vh;
 }
 
 .lgo-content {
    position: relative;
    top: 8vh;
+}
+
+.cp-content {
+   position: relative;
+   top: -2vh;
 }
 
 .header {
@@ -159,12 +164,23 @@ input {
 .button {
    font-family: "Metropolis Bold";
    border: none;
-   padding: 9px 125px;
    font-size: 23px;
    color: #212529;
    background-color: #cc9a06;
    text-align: center;
    margin: 10px 10px 20px 10px;
+}
+
+.login-but {
+   padding: 9px 124px;
+}
+
+.signup-but {
+   padding: 9px 116px;
+}
+
+.change-but {
+   padding: 9px 115.5px;
 }
 
 .button:hover {

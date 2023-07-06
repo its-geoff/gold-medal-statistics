@@ -190,3 +190,10 @@ def update_personal_record(athlete, mark):
 def user_validation(username):
    if get_user_model().objects.using("users").get(username = username) != get_user_model().DoesNotExist:
       return "dupe_username"
+   
+# validates password
+def password_validation(password, confirm):
+   if password and confirm and password != confirm:
+      return False
+   else:
+      return True
