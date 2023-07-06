@@ -15,14 +15,14 @@ urlpatterns = [
    path('password-change/', views.password_change, name='password_change'),
    # /password-change-done/
    path('password-change/done/', views.password_change_done, name='password_change_done'),
-   # /password-reset/
-   path('password-reset/', views.password_reset, name='password_reset'),
-   # /password-reset-done/
-   path('password-reset/done/', views.password_reset_done, name='password_reset_done'),
-   # /reset/userid/token/
-   path('reset/<uidb64>/token/', views.password_reset_confirm, name='password_reset_confirm'),
-   # /reset/done/
-   path('reset/done/', views.password_reset_complete, name='password_reset_complete'),
+   # # /password-reset/
+   # path('password-reset/', views.password_reset, name='password_reset'),
+   # # /password-reset-done/
+   # path('password-reset/done/', views.password_reset_done, name='password_reset_done'),
+   # # /reset/userid/token/
+   # path('reset/<uidb64>/token/', views.password_reset_confirm, name='password_reset_confirm'),
+   # # /reset/done/
+   # path('reset/done/', views.password_reset_complete, name='password_reset_complete'),
    # /profile/user
    path('profile/<str:username>', views.profile, name='profile'),
 ]
