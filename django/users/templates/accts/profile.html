@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block main %}
-<div class="container">
-   <div class="lgo-content">
-      <h1 class="header">This is your profile.</p>
-         <h3><a href="{% url 'accts:password_change' %}">Change your password</a></h3>
-         <h3><a href="{% url 'accts:logout' %}">Log out</a></h3>
+<div class="profile-container">
+   <div class="personal">
+      <h2 class="title">{{ user.get_username_text }}</h2>
+   </div>
+   <p class="image"><img src="{% static 'accts/profile_placeholder.png' %}" class="placeholder"></p>
+   <div class="info">
+      <p class="item">Last active on __/__/____</p>
+      <p class="item"># of athletes</p>
+      <p class="item"># of leaderboard entries</p>
+   </div>
+   <div class="settings">
+      <h3><a href="{% url 'accts:password_change' %}">Change your password</a></h3>
+      <h3><a href="{% url 'accts:logout' %}">Log out</a></h3>
    </div>
 </div>
 {% endblock %}
