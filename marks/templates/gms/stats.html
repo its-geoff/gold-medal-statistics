@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>stats</title>
+
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+   <link rel="stylesheet" href="{% static 'gms/style.css' %}">
+</head>
+
+<body>
+   <!-- adds the navbar into the webpage -->
+   {% include 'gms/navbar.html' %}
+
+   <!-- adds the gender navbar into the webpage -->
+   {% include 'gms/gender_nav.html' %}
+
+   {% if men_list %}
+   <div class="scroll">
+      <table class="table-spacing">
+         {% for athlete in men_list %}
+         <tr>
+            <td class="indicator hidden"></td>
+            <td class="container not-active"><a href="{% url 'gms:men_profile' athlete.get_name_text %}"
+                  class="stats-name">
+                  {{ athlete.get_name_text }}</a></td>
+         </tr>
+         {% endfor %}
+      </table>
+   </div>
+   {% else %}
+   <table>
+      <tr>
+         <td class="blank">No entries are available.</td>
+      </tr>
+   </table>
+   {% endif %}
+   <div class="frame blank-frame">
+      <p class=" bold-blank">Click on an athlete's name to<br>get their
+         best marks.</p>
+   </div>
+</body>
+
+</html>

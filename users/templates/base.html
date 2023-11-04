@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>login</title>
+
+   <!-- loads static files (files used to render webpage) -->
+   {% load static %}
+
+   <link rel="stylesheet" href="{% static 'accts/style.css' %}">
+   <link rel="icon" href="{% static 'gms/favicon.ico' %}">
+</head>
+
+<body>
+   <!-- adds the navbar into the webpage -->
+   {% include 'accts/navbar.html' %}
+
+   {% block main %}
+   {% endblock %}
+</body>
+
+</html>

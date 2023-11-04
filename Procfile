@@ -1,0 +1,1 @@
+web: gunicorn gold_medal_statistics.wsgi
