@@ -1,0 +1,130 @@
+changed name of 'django' folder
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Changes to be committed:
+#	renamed:    django/.github/ISSUE_TEMPLATE/bug_report.md -> gold_medal_statistics/.github/ISSUE_TEMPLATE/bug_report.md
+#	renamed:    django/.github/ISSUE_TEMPLATE/feature_issue.md -> gold_medal_statistics/.github/ISSUE_TEMPLATE/feature_issue.md
+#	renamed:    django/.github/ISSUE_TEMPLATE/small_issue.md -> gold_medal_statistics/.github/ISSUE_TEMPLATE/small_issue.md
+#	renamed:    django/.github/PULL_REQUEST_TEMPLATE.md -> gold_medal_statistics/.github/PULL_REQUEST_TEMPLATE.md
+#	renamed:    django/.gitignore -> gold_medal_statistics/.gitignore
+#	renamed:    django/LICENSE -> gold_medal_statistics/LICENSE
+#	renamed:    django/README.md -> gold_medal_statistics/README.md
+#	deleted:    gold_medal_statistics/__pycache__/app_logic.cpython-39.pyc
+#	renamed:    django/app_logic.py -> gold_medal_statistics/app_logic.py
+#	renamed:    django/gold_medal_statistics/__init__.py -> gold_medal_statistics/gold_medal_statistics/__init__.py
+#	deleted:    gold_medal_statistics/gold_medal_statistics/__pycache__/__init__.cpython-39.pyc
+#	deleted:    gold_medal_statistics/gold_medal_statistics/__pycache__/backends.cpython-39.pyc
+#	deleted:    gold_medal_statistics/gold_medal_statistics/__pycache__/settings.cpython-39.pyc
+#	deleted:    gold_medal_statistics/gold_medal_statistics/__pycache__/urls.cpython-39.pyc
+#	deleted:    gold_medal_statistics/gold_medal_statistics/__pycache__/wsgi.cpython-39.pyc
+#	renamed:    django/gold_medal_statistics/asgi.py -> gold_medal_statistics/gold_medal_statistics/asgi.py
+#	renamed:    django/gold_medal_statistics/backends.py -> gold_medal_statistics/gold_medal_statistics/backends.py
+#	renamed:    django/gold_medal_statistics/settings.py -> gold_medal_statistics/gold_medal_statistics/settings.py
+#	renamed:    django/gold_medal_statistics/urls.py -> gold_medal_statistics/gold_medal_statistics/urls.py
+#	renamed:    django/gold_medal_statistics/wsgi.py -> gold_medal_statistics/gold_medal_statistics/wsgi.py
+#	renamed:    django/manage.py -> gold_medal_statistics/manage.py
+#	renamed:    django/marks/__init__.py -> gold_medal_statistics/marks/__init__.py
+#	deleted:    gold_medal_statistics/marks/__pycache__/__init__.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/admin.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/apps.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/db_router.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/models.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/tests.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/urls.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/__pycache__/views.cpython-39.pyc
+#	renamed:    django/marks/admin.py -> gold_medal_statistics/marks/admin.py
+#	renamed:    django/marks/apps.py -> gold_medal_statistics/marks/apps.py
+#	renamed:    django/marks/db_router.py -> gold_medal_statistics/marks/db_router.py
+#	renamed:    django/marks/migrations/0001_initial.py -> gold_medal_statistics/marks/migrations/0001_initial.py
+#	renamed:    django/marks/migrations/0002_mark_points.py -> gold_medal_statistics/marks/migrations/0002_mark_points.py
+#	renamed:    django/marks/migrations/0003_athlete.py -> gold_medal_statistics/marks/migrations/0003_athlete.py
+#	renamed:    django/marks/migrations/0004_mark_team.py -> gold_medal_statistics/marks/migrations/0004_mark_team.py
+#	renamed:    django/marks/migrations/0005_athlete_team.py -> gold_medal_statistics/marks/migrations/0005_athlete_team.py
+#	renamed:    django/marks/migrations/0006_athlete_marks.py -> gold_medal_statistics/marks/migrations/0006_athlete_marks.py
+#	renamed:    django/marks/migrations/0007_remove_athlete_marks_athlete_eight_athlete_four_and_more.py -> gold_medal_statistics/marks/migrations/0007_remove_athlete_marks_athlete_eight_athlete_four_and_more.py
+#	renamed:    django/marks/migrations/0008_alter_athlete_eight_alter_athlete_four_and_more.py -> gold_medal_statistics/marks/migrations/0008_alter_athlete_eight_alter_athlete_four_and_more.py
+#	renamed:    django/marks/migrations/0009_remove_athlete_eight_remove_athlete_four_and_more.py -> gold_medal_statistics/marks/migrations/0009_remove_athlete_eight_remove_athlete_four_and_more.py
+#	renamed:    django/marks/migrations/0010_athlete_hj_mark_athlete_hj_points_athlete_lj_mark_and_more.py -> gold_medal_statistics/marks/migrations/0010_athlete_hj_mark_athlete_hj_points_athlete_lj_mark_and_more.py
+#	renamed:    django/marks/migrations/0011_athlete_dt_mark_athlete_dt_points_athlete_sp_mark_and_more.py -> gold_medal_statistics/marks/migrations/0011_athlete_dt_mark_athlete_dt_points_athlete_sp_mark_and_more.py
+#	renamed:    django/marks/migrations/0012_athlete_user_mark_user.py -> gold_medal_statistics/marks/migrations/0012_athlete_user_mark_user.py
+#	renamed:    django/marks/migrations/__init__.py -> gold_medal_statistics/marks/migrations/__init__.py
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0001_initial.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0002_mark_points.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0003_athlete.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0004_mark_team.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0005_athlete_team.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0006_athlete_marks.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0007_remove_athlete_marks_athlete_eight_athlete_four_and_more.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0008_alter_athlete_eight_alter_athlete_four_and_more.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0009_remove_athlete_eight_remove_athlete_four_and_more.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0010_athlete_hj_mark_athlete_hj_points_athlete_lj_mark_and_more.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0011_athlete_dt_mark_athlete_dt_points_athlete_sp_mark_and_more.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/0012_athlete_user_mark_user.cpython-39.pyc
+#	deleted:    gold_medal_statistics/marks/migrations/__pycache__/__init__.cpython-39.pyc
+#	renamed:    django/marks/models.py -> gold_medal_statistics/marks/models.py
+#	renamed:    django/marks/static/gms/Metropolis-Bold.otf -> gold_medal_statistics/marks/static/gms/Metropolis-Bold.otf
+#	renamed:    django/marks/static/gms/Metropolis-SemiBold.otf -> gold_medal_statistics/marks/static/gms/Metropolis-SemiBold.otf
+#	renamed:    django/marks/static/gms/Montserrat-Regular.ttf -> gold_medal_statistics/marks/static/gms/Montserrat-Regular.ttf
+#	renamed:    django/marks/static/gms/favicon.ico -> gold_medal_statistics/marks/static/gms/favicon.ico
+#	renamed:    django/marks/static/gms/gms_white.png -> gold_medal_statistics/marks/static/gms/gms_white.png
+#	renamed:    django/marks/static/gms/home_wordmark.png -> gold_medal_statistics/marks/static/gms/home_wordmark.png
+#	renamed:    django/marks/static/gms/men_placeholder.png -> gold_medal_statistics/marks/static/gms/men_placeholder.png
+#	renamed:    django/marks/static/gms/showcase.png -> gold_medal_statistics/marks/static/gms/showcase.png
+#	renamed:    django/marks/static/gms/style.css -> gold_medal_statistics/marks/static/gms/style.css
+#	renamed:    django/marks/static/gms/women_placeholder.png -> gold_medal_statistics/marks/static/gms/women_placeholder.png
+#	renamed:    django/marks/templates/gms/about.html -> gold_medal_statistics/marks/templates/gms/about.html
+#	renamed:    django/marks/templates/gms/gender_nav.html -> gold_medal_statistics/marks/templates/gms/gender_nav.html
+#	renamed:    django/marks/templates/gms/home.html -> gold_medal_statistics/marks/templates/gms/home.html
+#	renamed:    django/marks/templates/gms/men.html -> gold_medal_statistics/marks/templates/gms/men.html
+#	renamed:    django/marks/templates/gms/men_profile.html -> gold_medal_statistics/marks/templates/gms/men_profile.html
+#	renamed:    django/marks/templates/gms/navbar.html -> gold_medal_statistics/marks/templates/gms/navbar.html
+#	renamed:    django/marks/templates/gms/new_entry.html -> gold_medal_statistics/marks/templates/gms/new_entry.html
+#	renamed:    django/marks/templates/gms/scores.html -> gold_medal_statistics/marks/templates/gms/scores.html
+#	renamed:    django/marks/templates/gms/stats.html -> gold_medal_statistics/marks/templates/gms/stats.html
+#	renamed:    django/marks/templates/gms/women.html -> gold_medal_statistics/marks/templates/gms/women.html
+#	renamed:    django/marks/templates/gms/women_profile.html -> gold_medal_statistics/marks/templates/gms/women_profile.html
+#	renamed:    django/marks/urls.py -> gold_medal_statistics/marks/urls.py
+#	renamed:    django/marks/views.py -> gold_medal_statistics/marks/views.py
+#	renamed:    django/templates/admin/base_site.html -> gold_medal_statistics/templates/admin/base_site.html
+#	renamed:    django/users/__init__.py -> gold_medal_statistics/users/__init__.py
+#	deleted:    gold_medal_statistics/users/__pycache__/__init__.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/admin.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/apps.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/db_router.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/forms.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/models.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/tests.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/urls.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/__pycache__/views.cpython-39.pyc
+#	renamed:    django/users/admin.py -> gold_medal_statistics/users/admin.py
+#	renamed:    django/users/apps.py -> gold_medal_statistics/users/apps.py
+#	renamed:    django/users/db_router.py -> gold_medal_statistics/users/db_router.py
+#	renamed:    django/users/forms.py -> gold_medal_statistics/users/forms.py
+#	renamed:    django/users/migrations/0001_initial.py -> gold_medal_statistics/users/migrations/0001_initial.py
+#	renamed:    django/users/migrations/0002_alter_user_username.py -> gold_medal_statistics/users/migrations/0002_alter_user_username.py
+#	renamed:    django/users/migrations/__init__.py -> gold_medal_statistics/users/migrations/__init__.py
+#	deleted:    gold_medal_statistics/users/migrations/__pycache__/0001_initial.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/migrations/__pycache__/0002_alter_user_username.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/migrations/__pycache__/0003_user_team.cpython-39.pyc
+#	deleted:    gold_medal_statistics/users/migrations/__pycache__/__init__.cpython-39.pyc
+#	renamed:    django/users/models.py -> gold_medal_statistics/users/models.py
+#	renamed:    django/users/static/accts/Metropolis-Bold.otf -> gold_medal_statistics/users/static/accts/Metropolis-Bold.otf
+#	renamed:    django/users/static/accts/Metropolis-SemiBold.otf -> gold_medal_statistics/users/static/accts/Metropolis-SemiBold.otf
+#	renamed:    django/users/static/accts/Montserrat-Regular.ttf -> gold_medal_statistics/users/static/accts/Montserrat-Regular.ttf
+#	renamed:    django/users/static/accts/favicon.ico -> gold_medal_statistics/users/static/accts/favicon.ico
+#	renamed:    django/users/static/accts/profile_placeholder.png -> gold_medal_statistics/users/static/accts/profile_placeholder.png
+#	renamed:    django/users/static/accts/style.css -> gold_medal_statistics/users/static/accts/style.css
+#	renamed:    django/users/templates/accts/login.html -> gold_medal_statistics/users/templates/accts/login.html
+#	renamed:    django/users/templates/accts/logout.html -> gold_medal_statistics/users/templates/accts/logout.html
+#	renamed:    django/users/templates/accts/navbar.html -> gold_medal_statistics/users/templates/accts/navbar.html
+#	renamed:    django/users/templates/accts/password_change.html -> gold_medal_statistics/users/templates/accts/password_change.html
+#	renamed:    django/users/templates/accts/password_change_done.html -> gold_medal_statistics/users/templates/accts/password_change_done.html
+#	renamed:    django/users/templates/accts/password_reset.html -> gold_medal_statistics/users/templates/accts/password_reset.html
+#	renamed:    django/users/templates/accts/profile.html -> gold_medal_statistics/users/templates/accts/profile.html
+#	renamed:    django/users/templates/accts/signup.html -> gold_medal_statistics/users/templates/accts/signup.html
+#	renamed:    django/users/templates/base.html -> gold_medal_statistics/users/templates/base.html
+#	renamed:    django/users/urls.py -> gold_medal_statistics/users/urls.py
+#	renamed:    django/users/views.py -> gold_medal_statistics/users/views.py
+#

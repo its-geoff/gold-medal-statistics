@@ -1,0 +1,51 @@
+0000000000000000000000000000000000000000 19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc unknown <geoffreyyyagustin@gmail.com> 1673594257 -0800	commit (initial): first commit
+19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc 19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc unknown <geoffreyyyagustin@gmail.com> 1673594257 -0800	Branch: renamed refs/heads/master to refs/heads/main
+19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc 28aeabc2287e555ca5d62fc7d1cbf964dce6c081 unknown <geoffreyyyagustin@gmail.com> 1673594296 -0800	commit: first commit
+28aeabc2287e555ca5d62fc7d1cbf964dce6c081 1fa07da7e31d27f5a6c1db42c90d33c28d56f128 unknown <geoffreyyyagustin@gmail.com> 1673594372 -0800	commit: removed notes in app_logic.py
+1fa07da7e31d27f5a6c1db42c90d33c28d56f128 4f7409c33136b86a371191d9a7d70e1cbceea787 unknown <geoffreyyyagustin@gmail.com> 1673594800 -0800	commit: added comments and improved output cleanliness for app_logic.py
+4f7409c33136b86a371191d9a7d70e1cbceea787 0ee600bd45a4390bf14baf8e28f67e9ffdc86c7c unknown <geoffreyyyagustin@gmail.com> 1673598817 -0800	commit: fixed bug causing infinite loop during binary search
+0ee600bd45a4390bf14baf8e28f67e9ffdc86c7c ca718e085f95e2e915a426ef6b4647d4fcbc5b90 unknown <geoffreyyyagustin@gmail.com> 1674329312 -0800	commit: added logic and structure files
+ca718e085f95e2e915a426ef6b4647d4fcbc5b90 0ee600bd45a4390bf14baf8e28f67e9ffdc86c7c unknown <geoffreyyyagustin@gmail.com> 1675376519 -0800	reset: moving to HEAD^
+0ee600bd45a4390bf14baf8e28f67e9ffdc86c7c 4f7409c33136b86a371191d9a7d70e1cbceea787 unknown <geoffreyyyagustin@gmail.com> 1675376525 -0800	reset: moving to HEAD^
+4f7409c33136b86a371191d9a7d70e1cbceea787 1fa07da7e31d27f5a6c1db42c90d33c28d56f128 unknown <geoffreyyyagustin@gmail.com> 1675376525 -0800	reset: moving to HEAD^
+1fa07da7e31d27f5a6c1db42c90d33c28d56f128 28aeabc2287e555ca5d62fc7d1cbf964dce6c081 unknown <geoffreyyyagustin@gmail.com> 1675376526 -0800	reset: moving to HEAD^
+28aeabc2287e555ca5d62fc7d1cbf964dce6c081 19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc unknown <geoffreyyyagustin@gmail.com> 1675376540 -0800	reset: moving to HEAD^
+19bd75f7bf3ca1a89b45e75126dbf83cbc77e2dc 4e059f752d0d1493d2e2bc93246af1db2024e8aa Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687154074 -0700	commit: edited README with Start-Up instructions
+4e059f752d0d1493d2e2bc93246af1db2024e8aa dc64c45181998c43f3182b9ff28e0d684de1ceef Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687154758 -0700	commit: edited README with Start-Up instructions
+dc64c45181998c43f3182b9ff28e0d684de1ceef 207169d6bd7541d6c70a52051399d9213b746cfc Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687154830 -0700	commit (merge): merge branch 'main' of https://github.com/its-geoff/gold-medal-statistics
+207169d6bd7541d6c70a52051399d9213b746cfc 28470779f73e09d0a30b7f16c6b374fd863ac0df Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687156903 -0700	commit: edited README with instructions for running tests
+28470779f73e09d0a30b7f16c6b374fd863ac0df ce4577e39b6203e0b8b09778d86a2b79e65dcf81 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687237342 -0700	commit: edited Testing Instructions to be project specific
+ce4577e39b6203e0b8b09778d86a2b79e65dcf81 6fc7a744d65272ce325bb34d54abd4537cb13bb4 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687237410 -0700	commit: edited Testing Instructions to fix incorrect terminal command
+6fc7a744d65272ce325bb34d54abd4537cb13bb4 d2fa66d7a164b2a925cdcf02871941db84f884f9 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687558052 -0700	commit: initial commit
+d2fa66d7a164b2a925cdcf02871941db84f884f9 88c4cafc0cfbc1a1051eb958becf48bdedae1d44 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687558203 -0700	commit: fixed license
+88c4cafc0cfbc1a1051eb958becf48bdedae1d44 49b9664d1bdbd89acdcc0d0f4a33f2323b76cfe9 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687560487 -0700	pull origin main: Fast-forward
+49b9664d1bdbd89acdcc0d0f4a33f2323b76cfe9 0dfdbd6601b3e138f67c6fbe88d18f1fc0c6a6fa Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687581826 -0700	pull origin main: Fast-forward
+0dfdbd6601b3e138f67c6fbe88d18f1fc0c6a6fa cb01f5d1056eaba1bbb050922f972bb43e78a44b Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687591590 -0700	commit: slight language changes on GitHub templates
+cb01f5d1056eaba1bbb050922f972bb43e78a44b f1354804f61c2f7413eb87de10cfed55fe7fa426 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687656653 -0700	pull origin main: Fast-forward
+f1354804f61c2f7413eb87de10cfed55fe7fa426 33f012c3a855946533a29a77654fd1472369edfc Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687670048 -0700	pull: Fast-forward
+33f012c3a855946533a29a77654fd1472369edfc 49c8de4ca7a07eb705707f33562414ca83a6f438 Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687679933 -0700	pull origin: Fast-forward
+49c8de4ca7a07eb705707f33562414ca83a6f438 5ba6d8fbcc70bf81d17db612aaad9ebd0cfdc1bf Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687723772 -0700	pull origin main: Fast-forward
+5ba6d8fbcc70bf81d17db612aaad9ebd0cfdc1bf 7a789ccbb0997be21597f834adef34f77277e1ca Geoffrey Agustin <geoffreyyyagustin@gmail.com> 1687760178 -0700	pull origin main: Fast-forward
+7a789ccbb0997be21597f834adef34f77277e1ca c54dfa87ddfafa9702e9770581769d4133a6e5a4 Geoffrey <geoffreyyyagustin@gmail.com> 1687826041 -0700	pull origin main: Fast-forward
+c54dfa87ddfafa9702e9770581769d4133a6e5a4 cac45ea83121b2cc4b13e6f44a281797edf6bb02 Geoffrey <geoffreyyyagustin@gmail.com> 1687827110 -0700	pull origin main: Fast-forward
+cac45ea83121b2cc4b13e6f44a281797edf6bb02 ff6473c03d51621fd18af401898dd9c920923b6c Geoffrey <geoffreyyyagustin@gmail.com> 1687829298 -0700	pull origin main: Fast-forward
+ff6473c03d51621fd18af401898dd9c920923b6c 5ba8729365a366a31c81820d67c02cbca9424c25 Geoffrey <geoffreyyyagustin@gmail.com> 1687829841 -0700	pull origin main: Fast-forward
+5ba8729365a366a31c81820d67c02cbca9424c25 9ab635c0c38df1f109d01a22d64b51dd171ab606 Geoffrey <geoffreyyyagustin@gmail.com> 1687830644 -0700	pull origin main: Fast-forward
+9ab635c0c38df1f109d01a22d64b51dd171ab606 a0ea906c15a5561c5fdde4a12322080237bc74c6 Geoffrey <geoffreyyyagustin@gmail.com> 1687932173 -0700	pull origin main: Fast-forward
+a0ea906c15a5561c5fdde4a12322080237bc74c6 1854ba08f5ff00dd9ba36dc4622a588334af3c53 Geoffrey <geoffreyyyagustin@gmail.com> 1687934347 -0700	pull origin main: Fast-forward
+1854ba08f5ff00dd9ba36dc4622a588334af3c53 d78f7b1d930d415a18080a0662fe980dde0f01a7 Geoffrey <geoffreyyyagustin@gmail.com> 1688330960 -0700	pull origin main: Fast-forward
+d78f7b1d930d415a18080a0662fe980dde0f01a7 aeb149de457f3c800ba6aae64f365a1cd3a900eb Geoffrey <geoffreyyyagustin@gmail.com> 1688365693 -0700	pull origin main: Fast-forward
+aeb149de457f3c800ba6aae64f365a1cd3a900eb 63bd7aab528fccac3d10f87f3953cdbbac104704 Geoffrey <geoffreyyyagustin@gmail.com> 1688602968 -0700	pull origin main: Fast-forward
+63bd7aab528fccac3d10f87f3953cdbbac104704 297e251cf9d3203722f4792a3118a786b8cf869f Geoffrey <geoffreyyyagustin@gmail.com> 1690512580 -0700	commit: Procfile
+297e251cf9d3203722f4792a3118a786b8cf869f 8955db31c91bd050c3f0f079574aa2c593899005 Geoffrey <geoffreyyyagustin@gmail.com> 1690512590 -0700	pull: Merge made by the 'ort' strategy.
+8955db31c91bd050c3f0f079574aa2c593899005 2fd9ff5cb107dc7b6ce9d9aeec57e1d2c8bb6108 Geoffrey <geoffreyyyagustin@gmail.com> 1696216620 -0700	commit: changed directories
+2fd9ff5cb107dc7b6ce9d9aeec57e1d2c8bb6108 802f467156d1072c8dbf4152b38e95a78e8992eb Geoffrey <geoffreyyyagustin@gmail.com> 1696216715 -0700	commit: changed root folder
+802f467156d1072c8dbf4152b38e95a78e8992eb 9da6ef394df9cb6db12f6fc7fde8acb4f5c21fd3 Geoffrey <geoffreyyyagustin@gmail.com> 1696241583 -0700	pull origin main: Fast-forward
+9da6ef394df9cb6db12f6fc7fde8acb4f5c21fd3 078fedc7c4231e60f223b93b20121ab936e2bb1b Geoffrey <geoffreyyyagustin@gmail.com> 1696241646 -0700	commit: relocated requirements.txt
+078fedc7c4231e60f223b93b20121ab936e2bb1b c79ed022691e4e0f8b3feabee35857ccd2cb6a14 Geoffrey <geoffreyyyagustin@gmail.com> 1696241801 -0700	commit: added more requirements
+c79ed022691e4e0f8b3feabee35857ccd2cb6a14 a444220edec35e64b1903edcc72a59d17bd0ae61 Geoffrey <geoffreyyyagustin@gmail.com> 1696241922 -0700	commit: added static path definition
+a444220edec35e64b1903edcc72a59d17bd0ae61 ac40c0a24c0d25378cad5f96b86e7d7356b6fe0d Geoffrey <geoffreyyyagustin@gmail.com> 1696242072 -0700	commit: added django on heroku command
+ac40c0a24c0d25378cad5f96b86e7d7356b6fe0d 58eb0b22d4a5cce57e30c5491b43789e7663f2bb Geoffrey <geoffreyyyagustin@gmail.com> 1696242138 -0700	commit: fixed requirements.txt
+58eb0b22d4a5cce57e30c5491b43789e7663f2bb fe4153d48f61bcfcebcf198b6107c159ed5bb312 Geoffrey <geoffreyyyagustin@gmail.com> 1696242299 -0700	commit: added Procfile
+fe4153d48f61bcfcebcf198b6107c159ed5bb312 3b2b591b705d501d399993b4e8069c270478cc34 Geoffrey <geoffreyyyagustin@gmail.com> 1699055616 -0700	commit: changed name of 'django' folder
+3b2b591b705d501d399993b4e8069c270478cc34 260b13bd704cf4092926b90d9d4b3387468e6062 Geoffrey <geoffreyyyagustin@gmail.com> 1699055719 -0700	commit: changed name of 'django' folder
