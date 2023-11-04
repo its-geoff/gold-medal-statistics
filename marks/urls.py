@@ -7,7 +7,7 @@ from . import views
 app_name = 'gms'
 urlpatterns = [
    # /home/
-   path('/', views.home, name='home'),
+   path('', views.home, name='home'),
    path('home/', views.home, name='home'),
    # /about/
    path('about/', views.about, name='about'),
