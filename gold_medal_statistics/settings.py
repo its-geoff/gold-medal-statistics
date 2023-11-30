@@ -86,7 +86,7 @@ if 'JAWSDB_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(default=os.getenv("JAWSDB_URL", 0)),
         'marks': dj_database_url.config(default=os.getenv("JAWSDB_AQUA_URL", 0)),
-        'users': dj_database_url.config(default=os.getenv("JAWSDB_PURPLE_URL", 0))
+        'users': dj_database_url.config(default=os.getenv("JAWSDB_URL", 0))
     }
 else:
     DATABASES = {
