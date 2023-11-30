@@ -23,7 +23,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", 0)
+# SECRET_KEY = os.getenv("SECRET_KEY", 0)
+SECRET_KEY = 'django-insecure-fiic!03nz8w*_$j7(qlueb+=0dw0!=k_*)k6n+!_35ekap+2=w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,7 +86,7 @@ DATABASES = {
          'NAME': 'users',
          'USER': 'root',
          'PASSWORD': 'admin',
-         'HOST': 'localhost',
+         'HOST': '127.0.0.1',
          'PORT': '3306',
          'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -97,7 +98,7 @@ DATABASES = {
          'NAME': 'marks',
          'USER': 'root',
          'PASSWORD': 'admin',
-         'HOST': 'localhost',
+         'HOST': '127.0.0.1',
          'PORT': '3306',
          'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -109,7 +110,7 @@ DATABASES = {
          'NAME': 'users',
          'USER': 'root',
          'PASSWORD': 'admin',
-         'HOST': 'localhost',
+         'HOST': '127.0.0.1',
          'PORT': '3306',
          'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -175,4 +176,4 @@ import django_on_heroku
 django_on_heroku.settings(locals())
 
 # line 178: uncomment for server use, comment for local use
-del DATABASES['default']['OPTIONS']['sslmode'] 
+# del DATABASES['default']['OPTIONS']['sslmode'] 
