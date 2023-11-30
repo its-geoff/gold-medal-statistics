@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", 0)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gold-medal-statistics-e113a752d5f0.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -79,44 +79,54 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'users',
-         'USER': 'root',
-         'PASSWORD': 'admin',
-         'HOST': '127.0.0.1',
-         'PORT': '3306',
-         'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': True,
-         }
-    },
-    'marks': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'marks',
-         'USER': 'root',
-         'PASSWORD': 'admin',
-         'HOST': '127.0.0.1',
-         'PORT': '3306',
-         'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': True,
-         }
-    },
-    'users': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'users',
-         'USER': 'root',
-         'PASSWORD': 'admin',
-         'HOST': '127.0.0.1',
-         'PORT': '3306',
-         'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': True,
-         }
+# parse database configuration from $DATABASE_URL
+import dj_database_url
+
+if 'JAWSDB_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(default=os.getenv("JAWSDB_URL", 0)),
+        'marks': dj_database_url.config(default=os.getenv("JAWSDB_AQUA_URL", 0)),
+        'users': dj_database_url.config(default=os.getenv("JAWSDB_PURPLE_URL", 0))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'users',
+            'USER': 'root',
+            'PASSWORD': 'admin',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'OPTIONS': {  
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+                'ssl': True,
+            }
+        },
+        'marks': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'marks',
+            'USER': 'root',
+            'PASSWORD': 'admin',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'OPTIONS': {  
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+                'ssl': True,
+            }
+        },
+        'users': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'users',
+            'USER': 'root',
+            'PASSWORD': 'admin',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'OPTIONS': {  
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+                'ssl': True,
+            }
+        }
+    }
 
 DATABASE_ROUTERS = ['marks.db_router.MarksDBRouter', 'users.db_router.UsersDBRouter']
 
