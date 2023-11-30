@@ -3,7 +3,11 @@
 
 <head>
    <meta charset="utf-8">
-   <title>login</title>
+    {% if user.is_authenticated %}
+    <title>{{ user.get_username_text }}</title>
+    {% else %}
+    <title>Login</title>
+    {% endif %}
 
    <!-- loads static files (files used to render webpage) -->
    {% load static %}
