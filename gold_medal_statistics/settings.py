@@ -185,4 +185,4 @@ import django_on_heroku
 django_on_heroku.settings(locals())
 
 # line 178: uncomment for server use, comment for local use
-del DATABASES['default']['OPTIONS']['sslmode'] 
+# del DATABASES['default']['OPTIONS']['sslmode'] 
