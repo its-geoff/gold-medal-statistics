@@ -206,6 +206,6 @@ def email_validation(email):
 # validates password
 def password_validation(password, confirm):
    if password and confirm and password != confirm:
-      return False
-   else:
       return True
+   else:
+      return False

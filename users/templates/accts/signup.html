@@ -11,6 +11,8 @@
       {% elif dupe_email %}
       <h3 class="tl-error">There is already an account associated with<br>
          this email, please use another email.</h3>
+      {% elif diff_pass %}
+      <h3 class="tl-error">The passwords do not match, please try again.</h3>
       {% endif %}
       <form action="{% url 'accts:signup' %}" method="post">
          {% csrf_token %}
