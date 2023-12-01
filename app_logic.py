@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from datetime import datetime
 from marks.models import Athlete
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
 
 # loads environment variables
 load_dotenv()
@@ -187,9 +188,20 @@ def update_personal_record(athlete, mark):
    return chosen_athlete
 
 # validates username
-def user_validation(username):
-   if get_user_model().objects.using("users").get(username = username) != get_user_model().DoesNotExist:
-      return "dupe_username"
+def username_validation(username):
+   try:
+      if get_user_model().objects.using("users").get(username = username) != get_user_model().DoesNotExist:
+         return True
+   except ObjectDoesNotExist:
+      return False
+
+# validates email
+def email_validation(email):
+   try:
+      if get_user_model().objects.using("users").get(email = email) != get_user_model().DoesNotExist:
+         return True
+   except ObjectDoesNotExist:
+      return False
    
 # validates password
 def password_validation(password, confirm):
