@@ -8,6 +8,9 @@
       {% if dupe_username %}
       <h3 class="tl-error">There is already an account associated with<br>
          this username, please use another username.</h3>
+      {% elif dupe_email %}
+      <h3 class="tl-error">There is already an account associated with<br>
+         this email, please use another email.</h3>
       {% endif %}
       <form action="{% url 'accts:signup' %}" method="post">
          {% csrf_token %}
