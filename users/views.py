@@ -21,7 +21,7 @@ def signup(request):
       username_result = username_validation(username)
       if username_result:
          return render(request, 'accts/signup.html', {'page': page, 'dupe_username': True})
-      email_result = email_validation(username)
+      email_result = email_validation(email)
       if email_result:
          return render(request, 'accts/signup.html', {'page': page, 'dupe_email': True})
       password_result = password_validation(password, confirm)
