@@ -17,12 +17,16 @@ def signup(request):
       email = request.POST['email']
       username = request.POST['username']
       password = request.POST['password']
+      confirm = request.POST['confirm']
       username_result = username_validation(username)
       if username_result:
          return render(request, 'accts/signup.html', {'page': page, 'dupe_username': True})
       email_result = email_validation(username)
       if email_result:
          return render(request, 'accts/signup.html', {'page': page, 'dupe_email': True})
+      password_result = password_validation(password, confirm)
+      if password_result:
+         return render(request, 'accts/signup.html', {'page': page, 'diff_pass': True})
       else:
          user = get_user_model().objects.create_user(email, username, password)
       user.save(using="users")
@@ -64,11 +68,9 @@ def password_change(request):
       new_password = request.POST['new_password']
       confirm = request.POST['confirm_new']
       if password_validation(new_password, confirm):
-         print("success")
-         HttpResponseRedirect(reverse('accts:password_change_done'))
+         return render(request, 'accts/password_change.html', {'page': page, 'diff_pass': True})
       else:
-         print("fail")
-         return render(request, 'accts/password_change.html', {'page': page, 'new_fail': True})
+         HttpResponseRedirect(reverse('accts:password_change_done'))
    return render(request, 'accts/password_change.html', {'page': page})
    
 
@@ -77,21 +79,21 @@ def password_change_done(request):
    page = "login"
    return render(request, 'accts/password_change_done.html', {'page': page})
 
-def password_reset(request):
-   page = "login"
-   return render(request, 'accts/password_reset.html', {'page': page})
+# def password_reset(request):
+#    page = "login"
+#    return render(request, 'accts/password_reset.html', {'page': page})
 
-def password_reset_done(request):
-   page = "login"
-   return render(request, 'accts/password_reset_done.html', {'page': page})
+# def password_reset_done(request):
+#    page = "login"
+#    return render(request, 'accts/password_reset_done.html', {'page': page})
 
-def password_reset_confirm(request):
-   page = "login"
-   return render(request, 'accts/password_reset_confirm.html', {'page': page})
+# def password_reset_confirm(request):
+#    page = "login"
+#    return render(request, 'accts/password_reset_confirm.html', {'page': page})
 
-def password_reset_complete(request):
-   page = "login"
-   return render(request, 'accts/password_reset_complete.html', {'page': page})
+# def password_reset_complete(request):
+#    page = "login"
+#    return render(request, 'accts/password_reset_complete.html', {'page': page})
 
 def profile(request, username):
    page = "profile"
