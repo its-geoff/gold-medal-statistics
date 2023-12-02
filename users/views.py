@@ -38,7 +38,7 @@ def signup(request):
 def login(request):
    page = "login"
    if request.user.is_authenticated:
-      return HttpResponseRedirect(reverse('gms:home'))
+      return HttpResponseRedirect(reverse('accts:profile', kwargs = {'username': request.user}))
    else:
       if request.method == 'POST':
          form = AuthenticationForm(request, data=request.POST)
