@@ -103,9 +103,13 @@ li:hover:after {
 }
 
 /* home */
+.content {
+   display: block;
+   margin: 0 auto;
+}
+
 .welcome {
    display: inline-block;
-   margin: auto;
    text-align: center;
    padding: 5px;
    position: relative;
