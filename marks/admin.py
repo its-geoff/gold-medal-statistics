@@ -7,12 +7,12 @@ class MarkAdmin(admin.ModelAdmin):
    fieldsets = [
       ('Athlete information', {'fields': ['name', 'gender', 'team']}),
       ('Mark information',    {'fields': ['event', 'mark']}),
-      ('User Assignment', {'fields': ['user']})
+      ('User Assignment', {'fields': ['user']}),
    ]
 
-   list_display = ('name', 'gender', 'team', 'event', 'mark', 'points')
+   list_display = ('name', 'gender', 'team', 'event', 'mark', 'points', 'id')
    list_filter = ['name', 'gender', 'team', 'event', 'user']
-   search_fields = ['name', 'gender', 'team', 'event', 'user']
+   search_fields = ['name', 'gender', 'team', 'event', 'user', 'id']
 
 class AthleteAdmin(admin.ModelAdmin):
    fieldsets = [

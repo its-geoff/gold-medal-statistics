@@ -157,7 +157,7 @@ li:hover:after {
 
 /* scores */
 table {
-   display: block;
+   display: inline-block;
    table-layout: fixed;
    border-collapse: collapse;
    padding: 10px;
@@ -167,12 +167,7 @@ table {
    height: 55vh;
 }
 
-thead {
-   display: block;
-}
-
 tbody {
-   display: block;
    overflow: auto;
    width: 87.5%;
    height: 100%;
@@ -187,11 +182,9 @@ th {
 }
 
 td {
-   border: 0px;
    text-align: left;
    padding: 10px;
    border: transparent 2px solid;
-   margin-left: 10px;
 }
 
 h1 {
@@ -213,15 +206,28 @@ p {
 }
 
 .gender {
-   width: 8vw;
+   width: 4vw;
 }
 
 .team {
    width: 22vw;
 }
 
+.options {
+   width: 6vw;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.options-img {
+   width: auto;
+   max-height: 20px;
+   padding: 0 10px;
+   vertical-align: middle;
+}
+
 .normal {
-   width: 8vw;
+   width: 6vw;
 }
 
 .ignore-spacing {
