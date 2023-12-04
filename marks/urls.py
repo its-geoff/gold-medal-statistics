@@ -15,6 +15,8 @@ urlpatterns = [
    path('scores/', views.scores, name='scores'),
    # /scores/new/
    path('scores/new/', views.new_entry, name='new_entry'),
+   # /scores/delete/
+   path('scores/delete/<int:index>', views.delete, name='delete'),
    # /stats/
    path('stats/', views.stats, name='stats'),
    # /stats/men/

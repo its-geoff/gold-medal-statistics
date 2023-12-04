@@ -77,6 +77,13 @@ def new_entry(request):
    return HttpResponseRedirect(reverse('gms:scores'))
 
 @login_required
+def delete(request, index):
+   entry = Mark.objects.using("marks").filter(user = request.user.username).order_by('-points')[index]
+   entry.delete(using="marks")
+
+   return HttpResponseRedirect(reverse('gms:scores'))
+
+@login_required
 def stats(request):
    page = "stats"
    user = request.user.username
