@@ -93,9 +93,9 @@ def gender_validation(input):
    if input.lower() == "men" or input.lower() == "women":
       return input.lower()
    else:
-      if input.lower() == "m":
+      if input.lower() == "m" or input.lower() == "male":
          return "men"
-      elif input.lower() == "w":
+      elif input.lower() == "w" or input.lower() == "f" or input.lower() == "female":
          return "women"
       else:
          return None
