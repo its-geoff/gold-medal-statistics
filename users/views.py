@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from app_logic import username_validation, email_validation, password_validation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from marks.models import Mark, Athlete
 
 # Create your views here.
 def navbar(request):
@@ -98,8 +99,12 @@ def password_change_done(request):
 def profile(request, username):
    page = "profile"
    title = username
+   num_marks = Mark.objects.using("marks").filter(user = username).count()
+   num_athletes = Athlete.objects.using("marks").filter(user = username).count()
    context = {
       'title': title,
+      'num_marks': num_marks,
+      'num_athletes': num_athletes,
       'page': page,
    }
    return render(request, 'accts/profile.html', context)
