@@ -51,6 +51,53 @@ def new_entry(request):
    elif event == "dt" or event == "discus" or event == "discus throw":
       event = "DT"
    mark = float(request.POST['mark'])
+   if check_for_athlete(name, gender, team, user):
+      athlete = Athlete.objects.using("marks").get(user = user, name = name)
+   else:
+      athlete = Athlete.create(name, gender, team, user)
+      athlete.save(using="marks")
+   entry = Mark.create(name, gender, team, event, mark, user)
+   entry.save(using="marks")
+   leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+   try:
+      if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ" \
+      or event == "SP" or event == "DT":
+         entry.points = jt_binary_search(entry.gender, entry.event, entry.mark)
+      else:
+         entry.points = sd_binary_search(entry.gender, entry.event, entry.mark)
+   except (KeyError, Mark.DoesNotExist):
+      render(request, 'gms/new_entry.html', {
+            'leaderboard': leaderboard,
+            'error_message': "Unable to retrieve the requested mark.",
+        })
+   else:
+      update_personal_record(athlete, entry)
+      athlete.save(using="marks")
+      entry.save(using="marks")
+   return HttpResponseRedirect(reverse('gms:scores'))
+
+@login_required
+def edit(request, index):
+   # pulls data from new_entry template using id to use in python code
+   name = request.POST['name']
+   gender = gender_validation(request.POST['gender'])
+   team = request.POST['team']
+   event = request.POST['event'].lower()
+   user = request.user.username
+   # allows different abbreviations to work
+   if event == "hj" or event == "high" or event == "high jump":
+      event = "HJ"
+   elif event == "pv" or event == "pole" or event == "vault" or event == "pole vault":
+      event = "PV"
+   elif event == "lj" or event == "long" or event == "long jump":
+      event = "LJ"
+   elif event == "tj" or event == "triple" or event == "triple jump":
+      event = "TJ"
+   elif event == "sp" or event == "shot" or event == "shot put":
+      event = "SP"
+   elif event == "dt" or event == "discus" or event == "discus throw":
+      event = "DT"
+   mark = float(request.POST['mark'])
    if check_for_athlete(name, gender, team):
       athlete = Athlete.objects.using("marks").get(user = user, name = name)
    else:

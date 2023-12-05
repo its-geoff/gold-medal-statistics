@@ -48,8 +48,8 @@
             {% endif %}
             <td class="normal">{{ entry.get_points_text }}</td>
             <td class="options">
-               <img src="{% static 'gms/edit.png' %}" class="options-img" title="Edit this mark"> 
-               <a href="delete/{{ forloop.counter0 }}">{% include 'gms/delete.html' %}</a></td>
+               <a href="edit/{{ forloop.counter0 }}" title="Edit this mark">{% include 'gms/edit.html' %}</a>
+               <a href="delete/{{ forloop.counter0 }}" title="Delete this mark">{% include 'gms/delete.html' %}</a></td>
          </tr>
          {% endfor %}
       </tbody>

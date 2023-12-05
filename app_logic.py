@@ -101,9 +101,9 @@ def gender_validation(input):
          return None
    
 # checks if an athlete's page exists
-def check_for_athlete(name, gender, team):
+def check_for_athlete(name, gender, team, user):
    # filters by name first to shorten number of loop iterations
-   for athlete in Athlete.objects.filter(name = name):
+   for athlete in Athlete.objects.filter(name = name, user = user):
       if athlete.gender.lower() == gender.lower() and athlete.team.lower() == team.lower():
          return True
       else:
@@ -111,10 +111,10 @@ def check_for_athlete(name, gender, team):
 
 # updates an athlete's PR if it's better than the previous one
 def update_personal_record(athlete, mark):
-   if check_for_athlete(athlete.name, athlete.gender, athlete.team):
+   if check_for_athlete(athlete.name, athlete.gender, athlete.team, athlete.user):
       chosen_athlete = athlete
    else:
-      chosen_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team)
+      chosen_athlete = Athlete.create(athlete.name, athlete.gender, athlete.team, athlete.user)
    chosen_athlete.save(using="marks")
    if mark.event == "100m":
       if mark.points > chosen_athlete.one_points:
