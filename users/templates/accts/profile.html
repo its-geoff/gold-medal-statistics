@@ -9,7 +9,7 @@
    </div>
    <p class="image"><img src="{% static 'accts/profile_placeholder.png' %}" class="placeholder"></p>
    <div class="info">
-      <p class="item">Last active on __/__/____</p>
+      <p class="item">Last active on {{ last_login }}</p>
       {% if num_athletes == 1 %}
       <p class="item">1 athlete</p>
       {% else %}
