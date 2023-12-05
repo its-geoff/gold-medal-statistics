@@ -19,6 +19,11 @@ def about(request):
 def scores(request):
    page = "scores"
    user = request.user.username
+   if Athlete.objects.using("marks").filter(user = user).count() > 0:
+      for counter in Athlete.objects.using("marks").filter(user = user):
+         athlete = Athlete.objects.using("marks").get(user = user, name = counter.name);
+         if Mark.objects.using("marks").filter(user = user, name = counter.name).count() == 0:
+            athlete.delete(using = "marks")
    leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
    context = {
       'leaderboard': leaderboard,
