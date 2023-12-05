@@ -7,6 +7,7 @@ from app_logic import username_validation, email_validation, password_validation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from marks.models import Mark, Athlete
+from .models import User
 
 # Create your views here.
 def navbar(request):
@@ -101,10 +102,13 @@ def profile(request, username):
    title = username
    num_marks = Mark.objects.using("marks").filter(user = username).count()
    num_athletes = Athlete.objects.using("marks").filter(user = username).count()
+   last_login = User.objects.using("users").get(username = username).last_login
+   output_date = last_login.date().strftime('%m-%d-%Y')
    context = {
       'title': title,
       'num_marks': num_marks,
       'num_athletes': num_athletes,
+      'last_login': output_date,
       'page': page,
    }
    return render(request, 'accts/profile.html', context)
