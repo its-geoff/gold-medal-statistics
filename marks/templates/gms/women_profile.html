@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="utf-8">
-   <title>{{ athlete.get_name_text }}</title>
+   <title>{{ athlete.get_name_text }} • Gold Medal Statistics</title>
 
    <!-- loads static files (files used to render webpage) -->
    {% load static %}
@@ -51,7 +51,7 @@
    <div class="frame active-frame">
       <div class="personal">
          <h2 class="title">{{ athlete.get_name_text }}</h2>
-         <p class="team">{{ athlete.get_team_text }}</p>
+         <p class="subtitle">{{ grade }}, {{ athlete.get_team_text }}</p>
       </div>
       <p class="image"><img src="{% static 'gms/women_placeholder.png' %}" class="women"></p>
       <div class="info">

@@ -4,7 +4,10 @@ from django.template import loader
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Mark, Athlete
-from app_logic import sd_binary_search, jt_binary_search, gender_validation, check_for_athlete, update_personal_record
+from app_logic import sd_binary_search, jt_binary_search, gender_validation, check_for_athlete, set_grade, update_personal_record
+
+# used for edit function
+overlay = False
 
 # Create your views here.
 def home(request):
@@ -25,9 +28,11 @@ def scores(request):
          mark.delete()
    if Athlete.objects.using("marks").filter(user = user).count() > 0:
       for counter in Athlete.objects.using("marks").filter(user = user):
-         athlete = Athlete.objects.using("marks").get(user = user, name = counter.name);
+         athlete = Athlete.objects.using("marks").get(user = user, name = counter.name)
          if Mark.objects.using("marks").filter(user = user, name = counter.name).count() == 0:
             athlete.delete(using = "marks")
+         else:
+            set_grade(user, athlete)
    leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
    context = {
       'leaderboard': leaderboard,
@@ -36,13 +41,13 @@ def scores(request):
    
    return render(request, 'gms/scores.html', context)
 
-# saves correct point value
-# try to run every time a new entry is made?
+# saves correct point value and entry
 @login_required
 def new_entry(request):
    # pulls data from new_entry template using id to use in python code
    name = request.POST['name']
    gender = gender_validation(request.POST['gender'])
+   grade = request.POST['grade']
    team = request.POST['team']
    event = request.POST['event'].lower()
    user = request.user.username
@@ -63,9 +68,9 @@ def new_entry(request):
    if check_for_athlete(name, gender, team, user):
       athlete = Athlete.objects.using("marks").get(user = user, name = name)
    else:
-      athlete = Athlete.create(name, gender, team, user)
+      athlete = Athlete.create(name, gender, grade, team, user)
       athlete.save(using="marks")
-   entry = Mark.create(name, gender, team, event, mark, user)
+   entry = Mark.create(name, gender, grade, team, event, mark, user)
    entry.save(using="marks")
    leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
    try:
@@ -85,53 +90,22 @@ def new_entry(request):
       entry.save(using="marks")
    return HttpResponseRedirect(reverse('gms:scores'))
 
+# allows the user to edit a mark with the given index
 @login_required
 def edit(request, index):
-   # pulls data from new_entry template using id to use in python code
-   name = request.POST['name']
-   gender = gender_validation(request.POST['gender'])
-   team = request.POST['team']
-   event = request.POST['event'].lower()
-   user = request.user.username
-   # allows different abbreviations to work
-   if event == "hj" or event == "high" or event == "high jump":
-      event = "HJ"
-   elif event == "pv" or event == "pole" or event == "vault" or event == "pole vault":
-      event = "PV"
-   elif event == "lj" or event == "long" or event == "long jump":
-      event = "LJ"
-   elif event == "tj" or event == "triple" or event == "triple jump":
-      event = "TJ"
-   elif event == "sp" or event == "shot" or event == "shot put":
-      event = "SP"
-   elif event == "dt" or event == "discus" or event == "discus throw":
-      event = "DT"
-   mark = float(request.POST['mark'])
-   if check_for_athlete(name, gender, team):
-      athlete = Athlete.objects.using("marks").get(user = user, name = name)
+   global overlay
+   overlay = not overlay
+
+   if overlay:
+      # confirm edit
+      print("overlay")
    else:
-      athlete = Athlete.create(name, gender, team, user)
-      athlete.save(using="marks")
-   entry = Mark.create(name, gender, team, event, mark, user)
-   entry.save(using="marks")
-   leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
-   try:
-      if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ" \
-      or event == "SP" or event == "DT":
-         entry.points = jt_binary_search(entry.gender, entry.event, entry.mark)
-      else:
-         entry.points = sd_binary_search(entry.gender, entry.event, entry.mark)
-   except (KeyError, Mark.DoesNotExist):
-      render(request, 'gms/new_entry.html', {
-            'leaderboard': leaderboard,
-            'error_message': "Unable to retrieve the requested mark.",
-        })
-   else:
-      update_personal_record(athlete, entry)
-      athlete.save(using="marks")
-      entry.save(using="marks")
+      # configure overlay
+      print("no overlay")
+   
    return HttpResponseRedirect(reverse('gms:scores'))
 
+# allows the user to delete a mark with the given index
 @login_required
 def delete(request, index):
    entry = Mark.objects.using("marks").filter(user = request.user.username).order_by('-points')[index]
@@ -184,9 +158,20 @@ def men_profile(request, name):
    user = request.user.username
    men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
    athlete = Athlete.objects.using("marks").get(user = user, name = name)
+
+   if athlete.grade == 9:
+      grade = "Freshman"
+   elif athlete.grade == 10:
+      grade = "Sophomore"
+   elif athlete.grade == 11:
+      grade = "Junior"
+   elif athlete.grade == 12:
+      grade = "Senior"
+      
    context = {
       'men_list': men_list,
       'athlete': athlete,
+      'grade': grade,
       'title': title,
       'page': page,
    }
@@ -200,9 +185,20 @@ def women_profile(request, name):
    user = request.user.username
    women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
    athlete = Athlete.objects.using("marks").get(user = user, name = name)
+
+   if athlete.grade == 9:
+      grade = "Freshman"
+   elif athlete.grade == 10:
+      grade = "Sophomore"
+   elif athlete.grade == 11:
+      grade = "Junior"
+   elif athlete.grade == 12:
+      grade = "Senior"
+
    context = {
       'women_list': women_list,
       'athlete': athlete,
+      'grade': grade,
       'title': title,
       'page': page,
    }

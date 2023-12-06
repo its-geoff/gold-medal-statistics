@@ -4,6 +4,7 @@ from django.db import models
 class Mark(models.Model):
    name = models.CharField(max_length = 50)
    gender = models.CharField(max_length = 5)
+   grade = models.IntegerField(default  = 0)
    team = models.CharField(max_length = 50)
    event = models.CharField(max_length = 10)
    mark = models.FloatField(default = 0.0)
@@ -24,6 +25,9 @@ class Mark(models.Model):
       elif self.gender == "women":
          return "W"
    
+   def get_grade_text(self):
+      return self.grade
+   
    def get_team_text(self):
       return self.team
 
@@ -43,13 +47,14 @@ class Mark(models.Model):
       return self.user
    
    @classmethod
-   def create(cls, name, gender, team, event, mark, user):
-      mark = cls(name = name, gender = gender, team = team, event = event, mark = mark, points = 0, user = user)
+   def create(cls, name, gender, grade, team, event, mark, user):
+      mark = cls(name = name, gender = gender, grade = grade, team = team, event = event, mark = mark, points = 0, user = user)
       return mark
    
 class Athlete(models.Model):
    name = models.CharField(max_length = 50)
    gender = models.CharField(max_length = 50)
+   grade = models.IntegerField(default = 0, verbose_name = "grade")
    team = models.CharField(max_length = 50)
    one_mark = models.FloatField(default = 0.0, verbose_name = "mark")
    one_points = models.IntegerField(default = 0, verbose_name = "points")
@@ -93,6 +98,9 @@ class Athlete(models.Model):
    def get_name_text(self):
       return self.name
    
+   def get_grade_text(self):
+      return self.grade
+
    def get_team_text(self):
       return self.team
 
@@ -149,8 +157,8 @@ class Athlete(models.Model):
       return self.user
 
    @classmethod
-   def create(cls, name, gender, team, user):
-      athlete = cls(name = name, gender = gender, team = team, 
+   def create(cls, name, gender, grade, team, user):
+      athlete = cls(name = name, gender = gender, grade = grade, team = team, 
                     one_mark = 0.0, one_points = 0, two_mark = 0.0, two_points = 0,
                     four_mark = 0.0, four_points = 0, one_h_mark = 0.0, one_h_points = 0,
                     four_h_mark = 0.0, four_h_points = 0, one_r_mark = 0.0, one_r_points = 0,
