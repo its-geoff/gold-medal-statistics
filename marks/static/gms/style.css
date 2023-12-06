@@ -205,8 +205,9 @@ p {
    width: 19vw;
 }
 
-.gender {
+.small {
    width: 4vw;
+   text-align: center;
 }
 
 .team {
@@ -224,6 +225,11 @@ p {
    max-height: 20px;
    padding: 0 10px;
    vertical-align: middle;
+}
+
+.points {
+   width: 6vw;
+   text-align: center;
 }
 
 .normal {
@@ -282,7 +288,8 @@ input {
    width: 19vw;
 }
 
-#gender {
+#gender,
+#grade {
    width: 8vw;
 }
 
@@ -422,7 +429,7 @@ h3 {
    margin: 15px auto 5px auto;
 }
 
-.team {
+.subtitle {
    margin: 5px auto;
 }
 

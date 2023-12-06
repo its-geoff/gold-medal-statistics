@@ -5,18 +5,18 @@ from .models import Mark, Athlete
 
 class MarkAdmin(admin.ModelAdmin):
    fieldsets = [
-      ('Athlete information', {'fields': ['name', 'gender', 'team']}),
+      ('Athlete information', {'fields': ['name', 'gender', 'grade', 'team']}),
       ('Mark information',    {'fields': ['event', 'mark']}),
       ('User Assignment', {'fields': ['user']}),
    ]
 
-   list_display = ('name', 'gender', 'team', 'event', 'mark', 'points', 'user')
-   list_filter = ['name', 'gender', 'team', 'event', 'user']
-   search_fields = ['name', 'gender', 'team', 'event', 'user']
+   list_display = ('name', 'gender', 'grade', 'team', 'event', 'mark', 'points', 'user')
+   list_filter = ['name', 'gender', 'grade', 'team', 'event', 'user']
+   search_fields = ['name', 'gender', 'grade', 'team', 'event', 'user']
 
 class AthleteAdmin(admin.ModelAdmin):
    fieldsets = [
-      ('Athlete information', {'fields': ['name', 'gender', 'team']}),
+      ('Athlete information', {'fields': ['name', 'gender', 'grade', 'team']}),
       ('100m',    {'fields': ['one_mark', 'one_points']}),
       ('200m',    {'fields': ['two_mark', 'two_points']}),
       ('400m',    {'fields': ['four_mark', 'four_points']}),
@@ -36,9 +36,9 @@ class AthleteAdmin(admin.ModelAdmin):
       ('User Assignment', {'fields': ['user']}),
    ]
 
-   list_display = ('name', 'gender', 'team', 'user')
-   list_filter = ['name', 'gender', 'team', 'user']
-   search_fields = ['name', 'gender', 'team', 'user']
+   list_display = ('name', 'gender', 'grade', 'team', 'user')
+   list_filter = ['name', 'gender', 'grade', 'team', 'user']
+   search_fields = ['name', 'gender', 'grade', 'team', 'user']
 
 admin.site.register(Mark, MarkAdmin)
 admin.site.register(Athlete, AthleteAdmin)
