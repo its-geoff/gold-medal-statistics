@@ -114,12 +114,6 @@ li:hover:after {
    place-items: center;
 }
 
-.grid {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
 .welcome {
    display: inline-block;
    margin: auto;
