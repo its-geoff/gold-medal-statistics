@@ -171,7 +171,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Session management
-SESSION_COOKIE_AGE = 86400 # required login every day
+SESSION_COOKIE_AGE = 14400 # required login every 4 hours
 
 SESSION_SAVE_EVERY_REQUEST = False
 
