@@ -9,9 +9,17 @@
    </div>
    <p class="image"><img src="{% static 'accts/profile_placeholder.png' %}" class="placeholder"></p>
    <div class="info">
-      <p class="item">Last active on __/__/____</p>
-      <p class="item"># of athletes</p>
-      <p class="item"># of leaderboard entries</p>
+      <p class="item">Last active on {{ last_login }}</p>
+      {% if num_athletes == 1 %}
+      <p class="item">1 athlete</p>
+      {% else %}
+      <p class="item">{{ num_athletes }} athletes</p>
+      {% endif %}
+      {% if num_marks == 1 %}
+      <p class="item">1 leaderboard entry</p>
+      {% else %}
+      <p class="item">{{ num_marks }} leaderboard entries</p>
+      {% endif %}
    </div>
    <div class="settings">
       <h3><a href="{% url 'accts:password_change' %}">Change your password</a></h3>

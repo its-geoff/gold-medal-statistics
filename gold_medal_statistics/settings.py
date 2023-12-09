@@ -170,6 +170,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Session management
+SESSION_COOKIE_AGE = 14400 # required login every 4 hours
+
+SESSION_SAVE_EVERY_REQUEST = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

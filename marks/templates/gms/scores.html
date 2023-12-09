@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Scores</title>
+   <title>Scores • Gold Medal Statistics</title>
 
    <!-- loads static files (files used to render webpage) -->
    {% load static %}
@@ -26,18 +26,21 @@
       <thead>
          <tr>
             <th class="name">ATHLETE</th>
-            <th class="gender">GENDER</th>
+            <th class="small">GENDER</th>
+            <th class="small">GRADE</th>
             <th class="team">TEAM</th>
             <th class="normal">EVENT</th>
             <th class="normal">MARK</th>
             <th class="normal">POINTS</th>
+            <th class="options">OPTIONS</th>
          </tr>
       </thead>
       <tbody>
          {% for entry in leaderboard %}
          <tr>
             <td class="name">{{ entry.get_name_text }}</td>
-            <td class="gender">{{ entry.get_gender_text }}</td>
+            <td class="small">{{ entry.get_gender_text }}</td>
+            <td class="small">{{ entry.get_grade_text }}</td>
             <td class="team">{{ entry.get_team_text}}</td>
             <td class="normal">{{ entry.get_event_text }}</td>
             {% if entry.event == "HJ" or entry.event == "PV" or entry.event == "LJ" or entry.event == "TJ" %}
@@ -45,7 +48,10 @@
             {% else %}
             <td class="normal">{{ entry.get_sd_mark_text }}</td>
             {% endif %}
-            <td class="normal">{{ entry.get_points_text }}</td>
+            <td class="points">{{ entry.get_points_text }}</td>
+            <td class="options">
+               <a href="edit/{{ forloop.counter0 }}" title="Edit this mark">{% include 'gms/edit.html' %}</a>
+               <a href="delete/{{ forloop.counter0 }}" title="Delete this mark">{% include 'gms/delete.html' %}</a></td>
          </tr>
          {% endfor %}
       </tbody>

@@ -6,6 +6,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from app_logic import username_validation, email_validation, password_validation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from marks.models import Mark, Athlete
+from .models import User
+import datetime
 
 # Create your views here.
 def navbar(request):
@@ -38,7 +41,7 @@ def signup(request):
 def login(request):
    page = "login"
    if request.user.is_authenticated:
-      return HttpResponseRedirect(reverse('gms:home'))
+      return HttpResponseRedirect(reverse('accts:profile', kwargs = {'username': request.user}))
    else:
       if request.method == 'POST':
          form = AuthenticationForm(request, data=request.POST)
@@ -98,8 +101,17 @@ def password_change_done(request):
 def profile(request, username):
    page = "profile"
    title = username
+   num_marks = Mark.objects.using("marks").filter(user = username).count()
+   num_athletes = Athlete.objects.using("marks").filter(user = username).count()
+   last_login = User.objects.using("users").get(username = username).last_login
+   eighthours = datetime.timedelta(hours=8)
+   date = last_login - eighthours
+   output_date = date.strftime('%m-%d-%Y')
    context = {
       'title': title,
+      'num_marks': num_marks,
+      'num_athletes': num_athletes,
+      'last_login': output_date,
       'page': page,
    }
    return render(request, 'accts/profile.html', context)

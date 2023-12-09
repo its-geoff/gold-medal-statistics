@@ -116,7 +116,6 @@ li:hover:after {
 
 .welcome {
    display: inline-block;
-   margin: auto;
    text-align: center;
    padding: 5px;
    position: relative;
@@ -161,22 +160,17 @@ li:hover:after {
 
 /* scores */
 table {
-   display: block;
+   display: inline-block;
    table-layout: fixed;
    border-collapse: collapse;
-   padding: 10px;
+   padding: 15px;
    font-family: "Metropolis SemiBold";
    font-size: 23px;
-   margin-left: 10px;
+   margin-left: 15px;
    height: 55vh;
 }
 
-thead {
-   display: block;
-}
-
 tbody {
-   display: block;
    overflow: auto;
    width: 87.5%;
    height: 100%;
@@ -191,11 +185,9 @@ th {
 }
 
 td {
-   border: 0px;
    text-align: left;
    padding: 10px;
    border: transparent 2px solid;
-   margin-left: 10px;
 }
 
 h1 {
@@ -209,23 +201,42 @@ p {
 }
 
 .leaderboard {
-   margin: 20px 0 10px 20px;
+   margin: 20px 0 0 30px;
 }
 
 .name {
    width: 19vw;
 }
 
-.gender {
-   width: 8vw;
+.small {
+   width: 4vw;
+   text-align: center;
 }
 
 .team {
    width: 22vw;
 }
 
+.options {
+   width: 6vw;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.options-img {
+   width: auto;
+   max-height: 20px;
+   padding: 0 10px;
+   vertical-align: middle;
+}
+
+.points {
+   width: 6vw;
+   text-align: center;
+}
+
 .normal {
-   width: 8vw;
+   width: 6vw;
 }
 
 .ignore-spacing {
@@ -280,7 +291,8 @@ input {
    width: 19vw;
 }
 
-#gender {
+#gender,
+#grade {
    width: 8vw;
 }
 
@@ -315,7 +327,8 @@ input {
 .table-spacing {
    border-collapse: separate;
    border-spacing: 0 20px;
-   padding: 0px;
+   padding: 0 15px;
+   margin-left: 20px;
 }
 
 .scroll {
@@ -367,7 +380,7 @@ input {
    grid-template-columns: 1fr 1fr 1fr;
    grid-template-rows: 1fr 4vh 1fr 1fr 4vh 1fr 1fr 4vh;
    position: absolute;
-   left: 59vw;
+   left: 58.75vw;
    bottom: 8vh;
    width: 38vw;
    height: 75vh;
@@ -420,7 +433,7 @@ h3 {
    margin: 15px auto 5px auto;
 }
 
-.team {
+.subtitle {
    margin: 5px auto;
 }
 

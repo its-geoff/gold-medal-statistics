@@ -37,4 +37,4 @@ class User(AbstractBaseUser, PermissionsMixin):
       return self.username.upper()
 
    USERNAME_FIELD = 'username'
-   REQUIRED_FIELDS = ['email']
+   REQUIRED_FIELDS = ['email', 'password']
