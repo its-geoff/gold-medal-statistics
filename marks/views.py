@@ -117,11 +117,9 @@ def delete(request, index):
 def stats(request):
    page = "stats"
    user = request.user.username
-   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
-   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men").order_by('name')
    context = {
       'men_list': men_list,
-      'women_list': women_list,
       'page': page,
    }
 
@@ -131,7 +129,7 @@ def stats(request):
 def men(request):
    page = "men"
    user = request.user.username
-   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men").order_by('name')
    context = {
       'men_list': men_list,
       'page': page,
@@ -143,7 +141,7 @@ def men(request):
 def women(request):
    page = "women"
    user = request.user.username
-   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
+   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women").order_by('name')
    context = {
       'women_list': women_list,
       'page': page,
@@ -156,7 +154,7 @@ def men_profile(request, name):
    page = "men"
    title = name
    user = request.user.username
-   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men")
+   men_list = Athlete.objects.using("marks").filter(user = user, gender = "men").order_by('name')
    athlete = Athlete.objects.using("marks").get(user = user, name = name)
 
    if athlete.grade == 9:
@@ -183,7 +181,7 @@ def women_profile(request, name):
    page = "women"
    title = name
    user = request.user.username
-   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women")
+   women_list = Athlete.objects.using("marks").filter(user = user, gender = "women").order_by('name')
    athlete = Athlete.objects.using("marks").get(user = user, name = name)
 
    if athlete.grade == 9:
