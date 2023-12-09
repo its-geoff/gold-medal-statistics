@@ -9,6 +9,7 @@ from django.contrib.auth import get_user_model
 from marks.models import Mark, Athlete
 from .models import User
 from dateutil import tz
+from tzlocal import get_localzone
 
 # Create your views here.
 def navbar(request):
@@ -105,10 +106,10 @@ def profile(request, username):
    num_athletes = Athlete.objects.using("marks").filter(user = username).count()
    last_login = User.objects.using("users").get(username = username).last_login
    from_zone = tz.tzutc()
-   to_zone = tz.tzlocal()
+   to_zone = get_localzone()
    date = last_login.replace(tzinfo=from_zone).astimezone(to_zone)
    output_date = date.strftime('%m-%d-%Y')
-   print(date, output_date)
+   print(to_zone, date, output_date)
    context = {
       'title': title,
       'num_marks': num_marks,
