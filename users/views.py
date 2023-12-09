@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from marks.models import Mark, Athlete
 from .models import User
+from dateutil import tz
 
 # Create your views here.
 def navbar(request):
@@ -103,7 +104,10 @@ def profile(request, username):
    num_marks = Mark.objects.using("marks").filter(user = username).count()
    num_athletes = Athlete.objects.using("marks").filter(user = username).count()
    last_login = User.objects.using("users").get(username = username).last_login
-   output_date = last_login.date().strftime('%m-%d-%Y')
+   from_zone = tz.tzutc()
+   to_zone = tz.tzlocal()
+   date = last_login.replace(tzinfo=from_zone)
+   output_date = date.astimezone(to_zone).strftime('%m-%d-%Y')
    context = {
       'title': title,
       'num_marks': num_marks,
