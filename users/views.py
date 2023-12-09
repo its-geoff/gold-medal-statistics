@@ -106,9 +106,9 @@ def profile(request, username):
    last_login = User.objects.using("users").get(username = username).last_login
    from_zone = tz.tzutc()
    to_zone = tz.tzlocal()
-   date = last_login.replace(tzinfo=from_zone)
-   output_date = date.astimezone(to_zone).strftime('%m-%d-%Y')
-   print(output_date)
+   date = last_login.replace(tzinfo=from_zone).astimezone(to_zone)
+   output_date = date.strftime('%m-%d-%Y')
+   print(date, output_date)
    context = {
       'title': title,
       'num_marks': num_marks,
