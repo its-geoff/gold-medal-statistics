@@ -107,7 +107,6 @@ def profile(request, username):
    eighthours = datetime.timedelta(hours=8)
    date = last_login - eighthours
    output_date = date.strftime('%m-%d-%Y')
-   print(date, output_date)
    context = {
       'title': title,
       'num_marks': num_marks,
