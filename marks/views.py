@@ -25,7 +25,7 @@ def scores(request):
    for counter in Mark.objects.using("marks").filter(user = user):
       mark = Mark.objects.using("marks").get(user = user, id = counter.id)
       if mark.points == 0:
-         mark.delete()
+         mark.delete(using = "marks")
    if Athlete.objects.using("marks").filter(user = user).count() > 0:
       for counter in Athlete.objects.using("marks").filter(user = user):
          athlete = Athlete.objects.using("marks").get(user = user, name = counter.name)
