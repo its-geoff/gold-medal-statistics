@@ -1,4 +1,5 @@
 from django.db import models
+from conversions import sec_to_min
 
 # Create your models here.
 class Mark(models.Model):
@@ -14,7 +15,7 @@ class Mark(models.Model):
    def __str__(self):
       mark_text = f"{self.name}, {self.team}, {self.event}, {self.mark}, {self.points}"
       return mark_text
-   
+
    # makes each parameter accessible in html
    def get_name_text(self):
       return self.name
@@ -35,8 +36,11 @@ class Mark(models.Model):
       return self.event
 
    def get_sd_mark_text(self):
-      return f"{self.mark:.2f}"
-   
+      if self.mark < 60.0:
+         return f"{self.mark:.2f}"
+      else:
+         return sec_to_min(self.mark)
+
    def get_jt_mark_text(self):
       return f"{self.mark:.2f}m"
 
