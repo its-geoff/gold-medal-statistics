@@ -1,4 +1,5 @@
 from django.db import models
+from conversions import sec_to_min
 
 # Create your models here.
 class Mark(models.Model):
@@ -14,7 +15,7 @@ class Mark(models.Model):
    def __str__(self):
       mark_text = f"{self.name}, {self.team}, {self.event}, {self.mark}, {self.points}"
       return mark_text
-   
+
    # makes each parameter accessible in html
    def get_name_text(self):
       return self.name
@@ -35,8 +36,11 @@ class Mark(models.Model):
       return self.event
 
    def get_sd_mark_text(self):
-      return f"{self.mark:.2f}"
-   
+      if self.mark < 60.0:
+         return f"{self.mark:.2f}"
+      else:
+         return sec_to_min(self.mark)
+
    def get_jt_mark_text(self):
       return f"{self.mark:.2f}m"
 
@@ -112,28 +116,37 @@ class Athlete(models.Model):
       return f"200m: {self.two_mark:.2f} - {self.two_points}"
    
    def get_four_pr(self):
-      return f"400m: {self.four_mark:.2f} - {self.four_points}"
+      if self.four_mark < 60.0:
+         return f"400m: {self.four_mark:.2f} - {self.four_points}"
+      else:
+         return f"400m: {sec_to_min(self.four_mark)} - {self.four_points}"
    
    def get_eight_pr(self):
-      return f"800m: {self.eight_mark:.2f} - {self.eight_points}"
+      return f"800m: {sec_to_min(self.eight_mark)} - {self.eight_points}"
    
    def get_sixteen_pr(self):
-      return f"1600m: {self.sixteen_mark:.2f} - {self.sixteen_points}"
+      return f"1600m: {sec_to_min(self.sixteen_mark)} - {self.sixteen_points}"
    
    def get_thirtytwo_pr(self):
-      return f"3200m: {self.thirtytwo_mark:.2f} - {self.thirtytwo_points}"
+      return f"3200m: {sec_to_min(self.thirtytwo_mark)} - {self.thirtytwo_points}"
    
    def get_one_h_pr(self):
       return f"100mH: {self.one_h_mark:.2f} - {self.one_h_points}"
    
    def get_four_h_pr(self):
-      return f"400mH: {self.four_h_mark:.2f} - {self.four_h_points}"
+      if self.four_h_mark < 60.0:
+         return f"400mH: {self.four_h_mark:.2f} - {self.four_h_points}"
+      else:
+         return f"400mH: {sec_to_min(self.four_h_mark)} - {self.four_h_points}"
    
    def get_one_r_pr(self):
-      return f"4x100m: {self.one_r_mark:.2f} - {self.one_r_points}"
+      if self.one_r_mark < 60.0:
+         return f"4x100m: {self.one_r_mark:.2f} - {self.one_r_points}"
+      else:
+         return f"4x100m: {sec_to_min(self.one_r_mark)} - {self.one_r_points}"
    
    def get_four_r_pr(self):
-      return f"4x400m: {self.four_r_mark:.2f} - {self.four_r_points}"
+      return f"4x400m: {sec_to_min(self.four_r_mark)} - {self.four_r_points}"
    
    def get_hj_pr(self):
       return f"High Jump: {self.hj_mark:.2f}m - {self.hj_points}"
