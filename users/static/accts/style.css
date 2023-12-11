@@ -290,3 +290,17 @@ h3 {
    font-size: 21px;
    align-content: center;
 }
+
+/* footer */
+p {
+   font-size: 20px;
+}
+
+.footer {
+   position: absolute;
+   font-size: 18px;
+   text-align: center;
+   margin-left: -250px;
+   left: 50%;
+   bottom: 0;
+}

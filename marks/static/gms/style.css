@@ -477,3 +477,13 @@ h3 {
    font-size: 25px;
    margin: 15px;
 }
+
+/* footer */
+.footer {
+   position: absolute;
+   font-size: 18px;
+   text-align: center;
+   margin-left: -250px;
+   left: 50%;
+   bottom: 0;
+}
