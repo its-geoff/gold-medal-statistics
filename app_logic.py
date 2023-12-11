@@ -99,7 +99,43 @@ def gender_validation(input):
          return "women"
       else:
          return None
-   
+
+# allows different abbreviations to work for event input
+def choose_event(event):
+   if event == "100" or event == "100m":
+      event_out = "100m"
+   elif event == "200" or event == "200m":
+      event_out = "200m"
+   elif event == "400" or event == "400m":
+      event_out = "400m"
+   elif event == "800" or event == "800m":
+      event_out = "800m"
+   elif event == "1600" or event == "1600m":
+      event_out = "1600m"
+   elif event == "3200" or event == "3200m":
+      event_out = "3200m"
+   elif event == "100h" or event == "100mh":
+      event_out = "100mH"
+   elif event == "110h" or event == "110mh":
+      event_out = "110mH"
+   elif event == "4x1" or event == "4x100" or event == "4x100m":
+      event_out = "4x100m"
+   elif event == "4x4" or event == "4x400" or event == "4x400m":
+      event_out = "4x400m"
+   if event == "hj" or event == "high" or event == "high jump":
+      event_out = "HJ"
+   elif event == "pv" or event == "pole" or event == "vault" or event == "pole vault":
+      event_out = "PV"
+   elif event == "lj" or event == "long" or event == "long jump":
+      event_out = "LJ"
+   elif event == "tj" or event == "triple" or event == "triple jump":
+      event_out = "TJ"
+   elif event == "sp" or event == "shot" or event == "shot put":
+      event_out = "SP"
+   elif event == "dt" or event == "discus" or event == "discus throw":
+      event_out = "DT"
+   return event_out
+
 # checks if an athlete's page exists
 def check_for_athlete(name, gender, team, user):
    # filters by name first to shorten number of loop iterations

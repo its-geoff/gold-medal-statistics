@@ -4,7 +4,8 @@ from django.template import loader
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Mark, Athlete
-from app_logic import sd_binary_search, jt_binary_search, gender_validation, check_for_athlete, set_grade, update_personal_record
+from app_logic import sd_binary_search, jt_binary_search, gender_validation, \
+   choose_event, check_for_athlete, set_grade, update_personal_record
 
 # used for edit function
 overlay = False
@@ -49,21 +50,10 @@ def new_entry(request):
    gender = gender_validation(request.POST['gender'])
    grade = request.POST['grade']
    team = request.POST['team']
-   event = request.POST['event'].lower()
+   event_in = request.POST['event'].lower()
    user = request.user.username
-   # allows different abbreviations to work
-   if event == "hj" or event == "high" or event == "high jump":
-      event = "HJ"
-   elif event == "pv" or event == "pole" or event == "vault" or event == "pole vault":
-      event = "PV"
-   elif event == "lj" or event == "long" or event == "long jump":
-      event = "LJ"
-   elif event == "tj" or event == "triple" or event == "triple jump":
-      event = "TJ"
-   elif event == "sp" or event == "shot" or event == "shot put":
-      event = "SP"
-   elif event == "dt" or event == "discus" or event == "discus throw":
-      event = "DT"
+   event = choose_event(event_in)
+   print(event_in, event)
    mark = float(request.POST['mark'])
    if check_for_athlete(name, gender, team, user):
       athlete = Athlete.objects.using("marks").get(user = user, name = name)

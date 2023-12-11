@@ -131,7 +131,10 @@ class Athlete(models.Model):
       return f"3200m: {sec_to_min(self.thirtytwo_mark)} - {self.thirtytwo_points}"
    
    def get_one_h_pr(self):
-      return f"100mH: {self.one_h_mark:.2f} - {self.one_h_points}"
+      if self.gender == "men":
+         return f"110mH: {self.one_h_mark:.2f} - {self.one_h_points}"
+      elif self.gender == "women":
+         return f"100mH: {self.one_h_mark:.2f} - {self.one_h_points}"
    
    def get_four_h_pr(self):
       if self.four_h_mark < 60.0:
