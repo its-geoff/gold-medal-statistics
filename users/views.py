@@ -65,7 +65,7 @@ def logout(request):
 
 @login_required
 def password_change(request):
-   page = "login"
+   page = "password change"
    user = get_user_model().objects.get(username = request.user.username)
    if request.method == "POST":
       new_password = request.POST['new_password']
@@ -79,7 +79,7 @@ def password_change(request):
 
 @login_required
 def password_change_done(request):
-   page = "login"
+   page = "password change done"
    return render(request, 'accts/password_change_done.html', {'page': page})
 
 # def password_reset(request):

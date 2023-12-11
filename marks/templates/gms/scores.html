@@ -17,6 +17,12 @@
    <!-- adds the navbar into the webpage -->
    {% include 'gms/navbar.html' %}
 
+   {% if dne_error_message %}
+   <p class="error"><strong>{{ dne_error_message }}</strong></p>
+   {% elif value_error_message %}
+   <p class="error"><strong>{{ value_error_message }}</strong></p>
+   {% endif %}
+
    <!-- adds the new entry part into the webpage -->
    {% include 'gms/new_entry.html' %}
 

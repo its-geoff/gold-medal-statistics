@@ -200,6 +200,12 @@ p {
    font-size: 20px;
 }
 
+.error {
+   color: #fb6767;
+   text-align: center;
+   margin-top: 0;
+}
+
 .leaderboard {
    margin: 20px 0 0 30px;
 }
