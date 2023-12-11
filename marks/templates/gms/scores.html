@@ -17,10 +17,16 @@
    <!-- adds the navbar into the webpage -->
    {% include 'gms/navbar.html' %}
 
-   {% if dne_error_message %}
-   <p class="error"><strong>{{ dne_error_message }}</strong></p>
-   {% elif value_error_message %}
-   <p class="error"><strong>{{ value_error_message }}</strong></p>
+   {% if points_error_message %}
+   <p class="error"><strong>{{ points_error_message }}</strong></p>
+   {% elif grade_error_message %}
+   <p class="error"><strong>{{ grade_error_message }}</strong></p>
+   {% elif gender_error_message %}
+   <p class="error"><strong>{{ gender_error_message }}</strong></p>
+   {% elif event_error_message %}
+   <p class="error"><strong>{{ event_error_message }}</strong></p>
+   {% elif mark_error_message %}
+   <p class="error"><strong>{{ mark_error_message }}</strong></p>
    {% endif %}
 
    <!-- adds the new entry part into the webpage -->
