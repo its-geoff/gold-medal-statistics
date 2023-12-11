@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Mark, Athlete
 from app_logic import sd_binary_search, jt_binary_search, gender_validation, \
    choose_event, check_for_athlete, set_grade, update_personal_record
+from conversions import min_to_sec
 
 # used for edit function
 overlay = False
@@ -53,8 +54,19 @@ def new_entry(request):
    event_in = request.POST['event'].lower()
    user = request.user.username
    event = choose_event(event_in)
-   print(event_in, event)
-   mark = float(request.POST['mark'])
+   mark_in = request.POST['mark']
+   try:
+      if mark_in.find(":") != -1:
+         mark = min_to_sec(mark_in)
+      else:
+         mark = float(mark_in)
+   except ValueError:
+      leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+      return render(request, 'gms/scores.html', {
+         'page': "scores",
+         'leaderboard': leaderboard,
+         'value_error_message': "Please enter a valid mark.",
+      })
    if check_for_athlete(name, gender, team, user):
       athlete = Athlete.objects.using("marks").get(user = user, name = name)
    else:
@@ -72,7 +84,7 @@ def new_entry(request):
    except (KeyError, Mark.DoesNotExist):
       render(request, 'gms/new_entry.html', {
             'leaderboard': leaderboard,
-            'error_message': "Unable to retrieve the requested mark.",
+            'dne_error_message': "Unable to retrieve the requested mark.",
         })
    else:
       update_personal_record(athlete, entry)
