@@ -46,14 +46,38 @@ def scores(request):
 # saves correct point value and entry
 @login_required
 def new_entry(request):
-   # pulls data from new_entry template using id to use in python code
-   name = request.POST['name']
-   gender = gender_validation(request.POST['gender'])
-   grade = request.POST['grade']
-   team = request.POST['team']
-   event_in = request.POST['event'].lower()
    user = request.user.username
+   # request.POST - pulls data from new_entry template using id to use in python code
+   name = request.POST['name']
+   # gender validation
+   gender = gender_validation(request.POST['gender'])
+   if gender == "none":
+      leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+      return render(request, 'gms/scores.html', {
+         'page': "scores",
+         'leaderboard': leaderboard,
+         'gender_error_message': "Please enter a valid gender.",
+      })
+   grade = int(request.POST['grade'])
+   if grade < 9 or grade > 12:
+      leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+      return render(request, 'gms/scores.html', {
+         'page': "scores",
+         'leaderboard': leaderboard,
+         'grade_error_message': "Please enter a grade from 9-12.",
+      })
+   team = request.POST['team']
+   # event validation
+   event_in = request.POST['event'].lower()
    event = choose_event(event_in)
+   if event == "none":
+      leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+      return render(request, 'gms/scores.html', {
+         'page': "scores",
+         'leaderboard': leaderboard,
+         'event_error_message': "Please enter a valid event.",
+      })
+   # mark validation
    mark_in = request.POST['mark']
    try:
       if mark_in.find(":") != -1:
@@ -65,7 +89,7 @@ def new_entry(request):
       return render(request, 'gms/scores.html', {
          'page': "scores",
          'leaderboard': leaderboard,
-         'value_error_message': "Please enter a valid mark.",
+         'mark_error_message': "Please enter a valid mark.",
       })
    if check_for_athlete(name, gender, team, user):
       athlete = Athlete.objects.using("marks").get(user = user, name = name)
@@ -75,6 +99,7 @@ def new_entry(request):
    entry = Mark.create(name, gender, grade, team, event, mark, user)
    entry.save(using="marks")
    leaderboard = Mark.objects.using("marks").filter(user = user).order_by('-points')
+   # points calculation and validation
    try:
       if event == "HJ" or event == "PV" or event == "LJ" or event == "TJ" \
       or event == "SP" or event == "DT":
@@ -84,8 +109,9 @@ def new_entry(request):
    except (KeyError, Mark.DoesNotExist):
       render(request, 'gms/new_entry.html', {
             'leaderboard': leaderboard,
-            'dne_error_message': "Unable to retrieve the requested mark.",
+            'points_error_message': "Unable to retrieve the requested mark.",
         })
+   # if successful, save athlete and entry
    else:
       update_personal_record(athlete, entry)
       athlete.save(using="marks")

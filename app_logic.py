@@ -98,7 +98,7 @@ def gender_validation(input):
       elif input.lower() == "w" or input.lower() == "f" or input.lower() == "female":
          return "women"
       else:
-         return None
+         return "none"
 
 # allows different abbreviations to work for event input
 def choose_event(event):
@@ -134,6 +134,8 @@ def choose_event(event):
       event_out = "SP"
    elif event == "dt" or event == "discus" or event == "discus throw":
       event_out = "DT"
+   else:
+      event_out = "none"
    return event_out
 
 # checks if an athlete's page exists
@@ -226,7 +228,7 @@ def update_personal_record(athlete, mark):
    elif mark.event == "DT":
       if mark.points > athlete.dt_points:
          athlete.dt_mark = mark.mark
-         athlete.dt_points = mark.points      
+         athlete.dt_points = mark.points
    athlete.save(using="marks")
 
 # applies changes made to the mark given by the index
