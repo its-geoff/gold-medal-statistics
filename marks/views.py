@@ -193,7 +193,9 @@ def men_profile(request, name):
       grade = "Junior"
    elif athlete.grade == 12:
       grade = "Senior"
-      
+
+   print(athlete.one_h_mark)
+
    context = {
       'men_list': men_list,
       'athlete': athlete,

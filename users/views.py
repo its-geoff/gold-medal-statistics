@@ -98,6 +98,7 @@ def password_change_done(request):
 #    page = "login"
 #    return render(request, 'accts/password_reset_complete.html', {'page': page})
 
+@login_required
 def profile(request, username):
    page = "profile"
    title = username

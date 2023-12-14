@@ -122,7 +122,7 @@ def choose_event(event):
       event_out = "4x100m"
    elif event == "4x4" or event == "4x400" or event == "4x400m":
       event_out = "4x400m"
-   if event == "hj" or event == "high" or event == "high jump":
+   elif event == "hj" or event == "high" or event == "high jump":
       event_out = "HJ"
    elif event == "pv" or event == "pole" or event == "vault" or event == "pole vault":
       event_out = "PV"
@@ -173,11 +173,11 @@ def update_personal_record(athlete, mark):
       if mark.points > athlete.four_points:
          athlete.four_mark = mark.mark
          athlete.four_points = mark.points
-   elif mark.event == "100mh":
+   elif mark.event == "100mH":
       if mark.points > athlete.one_h_points:
          athlete.one_h_mark = mark.mark
          athlete.one_h_points = mark.points
-   elif mark.event == "110mh":
+   elif mark.event == "110mH":
       if mark.points > athlete.one_h_points:
          athlete.one_h_mark = mark.mark
          athlete.one_h_points = mark.points
