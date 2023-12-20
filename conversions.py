@@ -18,3 +18,13 @@ def min_to_sec(time):
    min = int(time_sep[0])
    sec = round(float(time_sep[1]), 2)
    return round((60.0 * min) + sec, 2)
+
+# converts distance from meters to feet and inches
+def met_to_imp(distance):
+   imp = round(distance * 3.281, 3)
+   feet = int(imp // 1)
+   in_dec = round(imp % 1, 3)
+   inches = int((12 * in_dec) // 1)
+   offset = round((12 * in_dec) % 0.25, 3)
+   dec = round(100 * ((12 * in_dec) % 1 - offset))
+   return str(feet) + "' " + str(inches) + "." + str(dec) + "\""
