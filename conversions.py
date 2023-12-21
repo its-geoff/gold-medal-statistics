@@ -28,3 +28,12 @@ def met_to_imp(distance):
    offset = round((12 * in_dec) % 0.25, 3)
    dec = round(100 * ((12 * in_dec) % 1 - offset))
    return str(feet) + "' " + str(inches) + "." + str(dec) + "\""
+
+# converts distance from feet and inches to meters
+def imp_to_met(distance):
+   in_dis = distance.split("'")
+   feet = float(in_dis[0])
+   # isalnum() adds character to string if it's a number and discards if not
+   inches = float("".join(i for i in in_dis[1] if i.isalnum()))
+   met = round((feet + (inches / 12)) * 0.3048, 3)
+   return met
