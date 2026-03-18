@@ -1,5 +1,5 @@
 import http.client
-import json
+import requests
 import os
 from dotenv import load_dotenv
 from datetime import datetime
@@ -80,13 +80,9 @@ def jt_binary_search(gender, event, mark):
 
 # retrieves the desired mark from the Scoring Tables API
 def retrieve(gender, event, num):
-   conn.request("GET", f"/marks/{gender}/{num}", headers=headers)
-
-   res = conn.getresponse()
-   data = res.read()
-
-   response = json.loads(data)
-   return response[event]
+   url = f"https://scoring-tables-api.p.rapidapi.com/marks/{gender}/{num}"
+   response = requests.get(url, headers=headers)
+   return response.json()[event]
 
 # validates the gender input for the API
 def gender_validation(input):

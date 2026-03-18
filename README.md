@@ -1,28 +1,70 @@
-# Gold Medal Scoring
+# Gold Medal Statistics
 
-This app allows the user to input track marks and compare athletes on their team
-across different event types.
+Gold Medal Statistics is a web app for track and field coaches and athletes to input marks, 
+calculate scores using the World Athletics Scoring Tables, and compare performance across 
+events and athletes on a team.
 
-# Start-Up Instructions
+<!-- Add screenshots here -->
 
--  Open a new terminal and use "cd django" to change the current directory.
--  Use "python manage.py runserver" to start the server.
-   -  Use "Ctrl + C" to close the server.
+## Features
 
-# Testing Instructions
+- Score any track and field mark using the World Athletics Scoring Tables
+- Leaderboard sorted by points to compare athletes across different event types
+- Athlete profiles tracking personal records in every event
+- Separate men's and women's stats pages
+- User accounts with personal leaderboards and athlete rosters
 
--  Ensure the terminal is in the correct directory ("GMS/website (django)/django").
-   -  If not, use "cd django" to switch the directory.
--  Use "python manage.py test" to run all tests.
-   -  Use "python manage.py test marks.tests.model_name.test_name" to run only the "test_name" test.
+## Tech Stack
 
-# Timeline of Release Dates
+- **Backend:** Python, Django 4.1
+- **Database:** MySQL (JawsDB on Heroku)
+- **Frontend:** HTML, CSS
+- **Deployment:** Heroku
 
-- major release version [x.0.0] - as needed when new major features are created
-- minor release version [0.x.0] - every month as new minor features are created
-- patch version [0.0.x] - every 2 weeks as bugs are fixed
+## Live Demo
 
-# Releases
+[gold-medal-statistics-e113a752d5f0.herokuapp.com](https://gold-medal-statistics-e113a752d5f0.herokuapp.com)
 
-All major changes to this project can be found in "Releases" on the main page. For more detailed
-changes, refer to the "Issues" and "Projects" tabs.
+## Local Setup
+
+1. Clone the repository and navigate to the project root.
+
+2. Create a virtual environment and install dependencies:
+```bash
+   pip install -r requirements.txt
+```
+
+3. Create a `.env` file in the project root with the following variables:
+```
+   API-TOKEN=your_rapidapi_key
+   API-HOST=scoring-tables-api.p.rapidapi.com
+```
+
+4. Set up a local MySQL database and update the `DATABASES` config in `settings.py` 
+   with your credentials.
+
+5. Run migrations:
+```bash
+   python manage.py migrate
+   python manage.py migrate --database=marks
+   python manage.py migrate --database=users
+```
+
+6. Start the development server:
+```bash
+   python manage.py runserver
+```
+
+## Running Tests
+```bash
+python manage.py test
+```
+
+To run a specific test:
+```bash
+python manage.py test marks.tests.ModelName.test_name
+```
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.
