@@ -263,6 +263,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
+Questions or feedback? Reach out via GitHub or open an issue on the repo.
+
 Geoffrey Agustin, [its-geoff](https://github.com/its-geoff)
 
 Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://github.com/its-geoff/gold-medal-statistics)
