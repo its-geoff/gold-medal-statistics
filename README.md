@@ -1,10 +1,14 @@
 # Gold Medal Statistics
 
+<dig align="center">
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![License][license-shield]][license-url]
+
+</div>
 
 <div align="center">
   <a href="https://github.com/its-geoff/gold-medal-statistics">
@@ -81,11 +85,11 @@ Whether your sprinter runs a 11.5 in the 100m or your distance runner clocks a 4
 
 ## Built With
 
-* [![Django][Django-badge]][Django-url]
-* [![Python][Python-badge]][Python-url]
-* [![MySQL][MySQL-badge]][MySQL-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Heroku][Heroku-badge]][Heroku-url]
+- [![Django][Django-badge]][Django-url]
+- [![Python][Python-badge]][Python-url]
+- [![MySQL][MySQL-badge]][MySQL-url]
+- [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- [![Heroku][Heroku-badge]][Heroku-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,47 +114,53 @@ pip install -r requirements.txt
 ### Installation
 
 1. **Clone the repository**
-   ```sh
-   git clone https://github.com/its-geoff/gold-medal-statistics.git
-   cd gold-medal-statistics
-   ```
+
+    ```sh
+    git clone https://github.com/its-geoff/gold-medal-statistics.git
+    cd gold-medal-statistics
+    ```
 
 2. **Set up your MySQL databases**
 
-   Create two databases in MySQL:
-   ```sql
-   CREATE DATABASE marks;
-   CREATE DATABASE users;
-   ```
+    Create two databases in MySQL:
 
-   Import the provided schema dumps:
-   ```sh
-   mysql -u root -p marks < marks.sql
-   mysql -u root -p users < users.sql
-   ```
+    ```sql
+    CREATE DATABASE marks;
+    CREATE DATABASE users;
+    ```
+
+    Import the provided schema dumps:
+
+    ```sh
+    mysql -u root -p marks < marks.sql
+    mysql -u root -p users < users.sql
+    ```
 
 3. **Configure environment variables**
 
-   Create a `.env` file in the project root:
-   ```env
-   API-TOKEN=your_rapidapi_key_here
-   API-HOST=scoring-tables-api.p.rapidapi.com
-   SECRET_KEY=your_django_secret_key_here
-   ```
+    Create a `.env` file in the project root:
+
+    ```env
+    API-TOKEN=your_rapidapi_key_here
+    API-HOST=scoring-tables-api.p.rapidapi.com
+    SECRET_KEY=your_django_secret_key_here
+    ```
 
 4. **Apply migrations**
-   ```sh
-   python manage.py migrate
-   python manage.py migrate --database=marks
-   python manage.py migrate --database=users
-   ```
+
+    ```sh
+    python manage.py migrate
+    python manage.py migrate --database=marks
+    python manage.py migrate --database=users
+    ```
 
 5. **Run the development server**
-   ```sh
-   python manage.py runserver
-   ```
 
-   Visit `http://127.0.0.1:8000/home/` in your browser.
+    ```sh
+    python manage.py runserver
+    ```
+
+    Visit `http://127.0.0.1:8000/home/` in your browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,11 +176,11 @@ pip install -r requirements.txt
 
 ### Accepted Mark Formats
 
-| Event Type | Format | Example |
-|---|---|---|
-| Sprints / Short hurdles | Seconds (decimal) | `11.54` |
-| Middle / Long distance | `MM:SS.ms` | `4:32.10` |
-| Field events (jumps/throws) | Meters (decimal) | `6.75` |
+| Event Type                  | Format            | Example   |
+| --------------------------- | ----------------- | --------- |
+| Sprints / Short hurdles     | Seconds (decimal) | `11.54`   |
+| Middle / Long distance      | `MM:SS.ms`        | `4:32.10` |
+| Field events (jumps/throws) | Meters (decimal)  | `6.75`    |
 
 ### Accepted Event Abbreviations
 
@@ -187,14 +197,14 @@ Events can be entered in a variety of shorthand formats, for example:
 
 ## Supported Events
 
-| Sprints & Hurdles | Distance | Relays | Field |
-|---|---|---|---|
-| 100m | 800m | 4x100m | High Jump |
-| 200m | 1600m | 4x400m | Pole Vault |
-| 400m | 3200m | | Long Jump |
-| 100mH / 110mH | | | Triple Jump |
-| 400mH | | | Shot Put |
-| | | | Discus Throw |
+| Sprints & Hurdles | Distance | Relays | Field        |
+| ----------------- | -------- | ------ | ------------ |
+| 100m              | 800m     | 4x100m | High Jump    |
+| 200m              | 1600m    | 4x400m | Pole Vault   |
+| 400m              | 3200m    |        | Long Jump    |
+| 100mH / 110mH     |          |        | Triple Jump  |
+| 400mH             |          |        | Shot Put     |
+|                   |          |        | Discus Throw |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -217,11 +227,11 @@ See the [open issues](https://github.com/its-geoff/gold-medal-statistics/issues)
 
 ## Release Schedule
 
-| Version | Cadence | Description |
-|---|---|---|
-| `x.0.0` Major | As needed | New major features |
-| `0.x.0` Minor | Monthly | New minor features |
-| `0.0.x` Patch | Every 2 weeks | Bug fixes |
+| Version       | Cadence       | Description        |
+| ------------- | ------------- | ------------------ |
+| `x.0.0` Major | As needed     | New major features |
+| `0.x.0` Minor | Monthly       | New minor features |
+| `0.0.x` Patch | Every 2 weeks | Bug fixes          |
 
 All major changes are documented in [Releases](https://github.com/its-geoff/gold-medal-statistics/releases). For granular history, see the Issues and Projects tabs.
 
@@ -262,6 +272,7 @@ Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://githu
 ---
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/its-geoff/gold-medal-statistics.svg?style=for-the-badge
 [contributors-url]: https://github.com/its-geoff/gold-medal-statistics/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/its-geoff/gold-medal-statistics.svg?style=for-the-badge
@@ -273,7 +284,6 @@ Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://githu
 [license-shield]: https://img.shields.io/github/license/its-geoff/gold-medal-statistics.svg?style=for-the-badge
 [license-url]: https://github.com/its-geoff/gold-medal-statistics/blob/master/LICENSE
 [product-screenshot]: assets/home.png
-
 [Django-badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
 [Django-url]: https://djangoproject.com
 [Python-badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
