@@ -263,7 +263,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Geoffrey Agustin, geoffrey.agustin04@gmail.com
+Geoffrey Agustin, [its-geoff](https://github.com/its-geoff)
 
 Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://github.com/its-geoff/gold-medal-statistics)
 
