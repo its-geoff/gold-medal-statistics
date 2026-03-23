@@ -288,7 +288,7 @@ Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://githu
 [issues-url]: https://github.com/its-geoff/gold-medal-statistics/issues
 [license-shield]: https://img.shields.io/github/license/its-geoff/gold-medal-statistics.svg?style=for-the-badge
 [license-url]: https://github.com/its-geoff/gold-medal-statistics/blob/master/LICENSE
-[product-screenshot]: assets/home.png
+[home-screenshot]: assets/home.png
 [scores-screenshot]: assets/scores.png
 
 [Django-badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
