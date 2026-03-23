@@ -1,12 +1,14 @@
 # Gold Medal Statistics
 
-<dig align="center">
+<div align="center">
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![License][license-shield]][license-url]
+
+</div>
 
 </div>
 
@@ -59,7 +61,8 @@
 
 ## About The Project
 
-[![Product Screenshot][product-screenshot]](https://gold-medal-statistics-e113a752d5f0.herokuapp.com)
+[![Home Screenshot][home-screenshot]](https://gold-medal-statistics-e113a752d5f0.herokuapp.com)
+[![Scores Screenshot][scores-screenshot]](https://gold-medal-statistics-e113a752d5f0.herokuapp.com)
 
 **Gold Medal Statistics** is an innovative web application for track & field coaches and athletes. Using data from the **World Athletics Scoring Tables**, it converts raw event marks into a standardized point score — allowing you to compare performance across completely different events on a level playing field.
 
@@ -286,6 +289,8 @@ Project Link: [https://github.com/its-geoff/gold-medal-statistics](https://githu
 [license-shield]: https://img.shields.io/github/license/its-geoff/gold-medal-statistics.svg?style=for-the-badge
 [license-url]: https://github.com/its-geoff/gold-medal-statistics/blob/master/LICENSE
 [product-screenshot]: assets/home.png
+[scores-screenshot]: assets/scores.png
+
 [Django-badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
 [Django-url]: https://djangoproject.com
 [Python-badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
